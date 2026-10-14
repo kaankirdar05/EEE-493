@@ -1,7 +1,7 @@
 {
   "args": {
     "source": "torchsig",
-    "n_scenes": "60",
+    "n_scenes": "300",
     "seed": "1000",
     "pfa": "0.001",
     "n_fft": "512",
@@ -25,2226 +25,2541 @@
   },
   "detectors": {
     "energy_median": {
-      "n_signals": 140,
-      "recall_iou50": 0.6571428571428571,
-      "recall_iou30": 0.7285714285714285,
-      "covered": 0.7928571428571428,
-      "false_alarms_per_scene": 0.23333333333333334,
-      "fragments_per_scene": 0.5166666666666667,
-      "predicted_boxes_per_scene": 2.283333333333333,
-      "cell_false_alarm_rate_far_from_signals": 0.00037625042478265443,
-      "median_iou": 0.8672691603826441,
-      "median_fc_err_over_bw": 0.02590278926977933,
-      "median_bw_err_rel": 0.08644278606965164,
-      "median_t_start_err_rel": 0.0058020649272753095,
-      "median_t_stop_err_rel": 0.005933731904909913,
-      "runtime_ms_per_scene": 25.413690749981775,
+      "n_signals": 752,
+      "recall_iou50": 0.6542553191489362,
+      "recall_iou30": 0.7300531914893617,
+      "covered": 0.800531914893617,
+      "false_alarms_per_scene": 0.25666666666666665,
+      "fragments_per_scene": 0.48333333333333334,
+      "predicted_boxes_per_scene": 2.38,
+      "cell_false_alarm_rate_far_from_signals": 0.0003933604095645136,
+      "median_iou": 0.8789574225513765,
+      "median_fc_err_over_bw": 0.01986271845756833,
+      "median_bw_err_rel": 0.07056480295916898,
+      "median_t_start_err_rel": 0.005872627219080938,
+      "median_t_stop_err_rel": 0.006731589421808968,
+      "runtime_ms_per_scene": 23.302183056667523,
       "recall_iou30_by_class": {
         "1024qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 14,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.8571428571428571
+        },
+        "128qam_cross": {
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.8571428571428571
         },
         "16apsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.7692307692307693
         },
         "16ask": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.75
         },
         "16fsk": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 1.0,
           "covered": 1.0
         },
         "16gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
+          "n": 8,
+          "recall_iou30": 0.875,
           "covered": 1.0
         },
         "16gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
+          "n": 12,
+          "recall_iou30": 0.75,
           "covered": 1.0
         },
         "16msk": {
-          "n": 1,
-          "recall_iou30": 1.0,
+          "n": 10,
+          "recall_iou30": 0.8,
           "covered": 1.0
         },
         "16psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.6666666666666666
+        },
+        "16qam": {
+          "n": 11,
+          "recall_iou30": 0.9090909090909091,
+          "covered": 0.9090909090909091
         },
         "256qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 11,
+          "recall_iou30": 0.7272727272727273,
+          "covered": 0.9090909090909091
+        },
+        "2fsk": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.6
         },
         "2gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 16,
+          "recall_iou30": 0.8125,
+          "covered": 0.9375
         },
         "2gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.75
         },
         "2msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.8461538461538461
+        },
+        "32apsk": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.625
         },
         "32ask": {
-          "n": 3,
-          "recall_iou30": 1.0,
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
           "covered": 0.6666666666666666
         },
         "32psk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "32qam": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "4ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.6666666666666666
-        },
-        "4fsk": {
-          "n": 4,
-          "recall_iou30": 0.5,
-          "covered": 0.75
-        },
-        "4gfsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "4gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 1.0
-        },
-        "4msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
-        },
-        "512qam_cross": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "64ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 1.0
-        },
-        "64psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "64qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "80211a": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.3333333333333333
-        },
-        "8ask": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "8fsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "8gfsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "8gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.6666666666666666
-        },
-        "8psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "adsb-long": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "adsb-short": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "am-dsb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "am-dsb-sc": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "am-usb": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "bpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "btle": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "chirpss": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "dmr": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "dvbs2": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "fm": {
-          "n": 5,
-          "recall_iou30": 0.6,
-          "covered": 1.0
-        },
-        "gsm": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "lfm-data": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "lfm-radar": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "lora": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "ofdm-1024": {
           "n": 6,
           "recall_iou30": 0.8333333333333334,
           "covered": 1.0
         },
-        "ofdm-1200": {
-          "n": 2,
+        "32qam": {
+          "n": 11,
+          "recall_iou30": 0.6363636363636364,
+          "covered": 0.8181818181818182
+        },
+        "32qam_cross": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.4
+        },
+        "4ask": {
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.7272727272727273
+        },
+        "4fsk": {
+          "n": 18,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.7777777777777778
+        },
+        "4gfsk": {
+          "n": 15,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.8666666666666667
+        },
+        "4gmsk": {
+          "n": 18,
+          "recall_iou30": 0.6111111111111112,
+          "covered": 0.8333333333333334
+        },
+        "4msk": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 1.0
+        },
+        "512qam_cross": {
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.9090909090909091
+        },
+        "64ask": {
+          "n": 14,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.8571428571428571
+        },
+        "64psk": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "64qam": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "80211a": {
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.6923076923076923
+        },
+        "8ask": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.6
+        },
+        "8fsk": {
+          "n": 12,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 0.9166666666666666
+        },
+        "8gfsk": {
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.75
+        },
+        "8gmsk": {
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.8666666666666667
+        },
+        "8msk": {
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 1.0
+        },
+        "8psk": {
+          "n": 8,
+          "recall_iou30": 1.0,
+          "covered": 0.875
+        },
+        "adsb-long": {
+          "n": 16,
+          "recall_iou30": 0.1875,
+          "covered": 0.5
+        },
+        "adsb-short": {
+          "n": 19,
+          "recall_iou30": 0.15789473684210525,
+          "covered": 0.47368421052631576
+        },
+        "am-dsb": {
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
+          "covered": 0.23076923076923078
+        },
+        "am-dsb-sc": {
+          "n": 13,
+          "recall_iou30": 0.5384615384615384,
+          "covered": 0.7692307692307693
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.8
+        },
+        "am-usb": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "bpsk": {
+          "n": 11,
+          "recall_iou30": 0.8181818181818182,
+          "covered": 0.8181818181818182
+        },
+        "btle": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 0.7777777777777778
+        },
+        "chirpss": {
+          "n": 16,
+          "recall_iou30": 0.75,
+          "covered": 0.9375
+        },
+        "dmr": {
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.8571428571428571
+        },
+        "dvbs2": {
+          "n": 14,
+          "recall_iou30": 0.9285714285714286,
+          "covered": 0.7857142857142857
+        },
+        "fm": {
+          "n": 17,
+          "recall_iou30": 0.5882352941176471,
+          "covered": 0.9411764705882353
+        },
+        "gsm": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.9
+        },
+        "lfm-data": {
+          "n": 6,
           "recall_iou30": 0.5,
+          "covered": 1.0
+        },
+        "lfm-radar": {
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.8461538461538461
+        },
+        "lora": {
+          "n": 3,
+          "recall_iou30": 1.0,
+          "covered": 0.6666666666666666
+        },
+        "ofdm-1024": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 1.0
+        },
+        "ofdm-1200": {
+          "n": 8,
+          "recall_iou30": 0.625,
           "covered": 1.0
         },
         "ofdm-128": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 8,
+          "recall_iou30": 0.375,
+          "covered": 0.625
+        },
+        "ofdm-180": {
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.7777777777777778
+        },
+        "ofdm-2048": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.75
         },
         "ofdm-256": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.8888888888888888
         },
         "ofdm-300": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.8
         },
         "ofdm-512": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.8888888888888888
         },
         "ofdm-600": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.8571428571428571
         },
         "ofdm-64": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 1.0,
           "covered": 1.0
         },
         "ofdm-72": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.9230769230769231
         },
         "ofdm-900": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.8333333333333334
         },
         "ook": {
-          "n": 4,
-          "recall_iou30": 0.25,
-          "covered": 0.5
+          "n": 12,
+          "recall_iou30": 0.4166666666666667,
+          "covered": 0.3333333333333333
         },
         "p25": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.7333333333333333,
+          "covered": 0.8
         },
         "qpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
           "covered": 1.0
         },
         "tone": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.3333333333333333
+          "n": 13,
+          "recall_iou30": 0.15384615384615385,
+          "covered": 0.46153846153846156
         },
         "zigbee": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.6923076923076923
         }
       }
     },
     "energy_q25": {
-      "n_signals": 140,
-      "recall_iou50": 0.6642857142857143,
-      "recall_iou30": 0.7285714285714285,
-      "covered": 0.8,
-      "false_alarms_per_scene": 0.26666666666666666,
-      "fragments_per_scene": 0.5666666666666667,
-      "predicted_boxes_per_scene": 2.3833333333333333,
-      "cell_false_alarm_rate_far_from_signals": 0.00043798558369287415,
-      "median_iou": 0.8819610995794838,
-      "median_fc_err_over_bw": 0.02193228962852598,
-      "median_bw_err_rel": 0.08333333333333315,
-      "median_t_start_err_rel": 0.006013244360997641,
-      "median_t_stop_err_rel": 0.0059518181149599185,
-      "runtime_ms_per_scene": 23.926355516664444,
+      "n_signals": 752,
+      "recall_iou50": 0.6595744680851063,
+      "recall_iou30": 0.7300531914893617,
+      "covered": 0.8164893617021277,
+      "false_alarms_per_scene": 0.28,
+      "fragments_per_scene": 0.4766666666666667,
+      "predicted_boxes_per_scene": 2.41,
+      "cell_false_alarm_rate_far_from_signals": 0.00044003062982762777,
+      "median_iou": 0.8789688131569056,
+      "median_fc_err_over_bw": 0.0199225645014419,
+      "median_bw_err_rel": 0.06939229677727277,
+      "median_t_start_err_rel": 0.006068603320208078,
+      "median_t_stop_err_rel": 0.006779608841701519,
+      "runtime_ms_per_scene": 21.949902623331354,
       "recall_iou30_by_class": {
         "1024qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 14,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.8571428571428571
+        },
+        "128qam_cross": {
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.8571428571428571
         },
         "16apsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.7692307692307693
         },
         "16ask": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.75
         },
         "16fsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 10,
+          "recall_iou30": 0.9,
           "covered": 1.0
         },
         "16gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
+          "n": 8,
+          "recall_iou30": 0.875,
           "covered": 1.0
         },
         "16gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
+          "n": 12,
+          "recall_iou30": 0.75,
           "covered": 1.0
         },
         "16msk": {
-          "n": 1,
-          "recall_iou30": 1.0,
+          "n": 10,
+          "recall_iou30": 0.8,
           "covered": 1.0
         },
         "16psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.6666666666666666
+        },
+        "16qam": {
+          "n": 11,
+          "recall_iou30": 0.9090909090909091,
+          "covered": 0.9090909090909091
         },
         "256qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 11,
+          "recall_iou30": 0.7272727272727273,
+          "covered": 0.9090909090909091
+        },
+        "2fsk": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.6
         },
         "2gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 16,
+          "recall_iou30": 0.8125,
+          "covered": 0.9375
         },
         "2gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.75
         },
         "2msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.8461538461538461
+        },
+        "32apsk": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.75
         },
         "32ask": {
-          "n": 3,
-          "recall_iou30": 1.0,
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
           "covered": 0.6666666666666666
         },
         "32psk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "32qam": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "4ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.6666666666666666
-        },
-        "4fsk": {
-          "n": 4,
-          "recall_iou30": 0.5,
-          "covered": 0.75
-        },
-        "4gfsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "4gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 1.0
-        },
-        "4msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
-        },
-        "512qam_cross": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "64ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 1.0
-        },
-        "64psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "64qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "80211a": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.3333333333333333
-        },
-        "8ask": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "8fsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "8gfsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "8gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
-        },
-        "8psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "adsb-long": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "adsb-short": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "am-dsb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "am-dsb-sc": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "am-usb": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "bpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "btle": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "chirpss": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "dmr": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "dvbs2": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "fm": {
-          "n": 5,
-          "recall_iou30": 0.6,
-          "covered": 1.0
-        },
-        "gsm": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "lfm-data": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "lfm-radar": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "lora": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "ofdm-1024": {
           "n": 6,
           "recall_iou30": 0.8333333333333334,
           "covered": 1.0
         },
-        "ofdm-1200": {
-          "n": 2,
+        "32qam": {
+          "n": 11,
+          "recall_iou30": 0.6363636363636364,
+          "covered": 0.8181818181818182
+        },
+        "32qam_cross": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.5
+        },
+        "4ask": {
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.7272727272727273
+        },
+        "4fsk": {
+          "n": 18,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.8333333333333334
+        },
+        "4gfsk": {
+          "n": 15,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.9333333333333333
+        },
+        "4gmsk": {
+          "n": 18,
+          "recall_iou30": 0.6111111111111112,
+          "covered": 0.8333333333333334
+        },
+        "4msk": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 1.0
+        },
+        "512qam_cross": {
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.9090909090909091
+        },
+        "64ask": {
+          "n": 14,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.8571428571428571
+        },
+        "64psk": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "64qam": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "80211a": {
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.6923076923076923
+        },
+        "8ask": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.6
+        },
+        "8fsk": {
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 0.9166666666666666
+        },
+        "8gfsk": {
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.75
+        },
+        "8gmsk": {
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.9333333333333333
+        },
+        "8msk": {
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 1.0
+        },
+        "8psk": {
+          "n": 8,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "adsb-long": {
+          "n": 16,
+          "recall_iou30": 0.1875,
+          "covered": 0.5
+        },
+        "adsb-short": {
+          "n": 19,
+          "recall_iou30": 0.15789473684210525,
+          "covered": 0.47368421052631576
+        },
+        "am-dsb": {
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
+          "covered": 0.3076923076923077
+        },
+        "am-dsb-sc": {
+          "n": 13,
+          "recall_iou30": 0.5384615384615384,
+          "covered": 0.7692307692307693
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.8
+        },
+        "am-usb": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "bpsk": {
+          "n": 11,
+          "recall_iou30": 0.8181818181818182,
+          "covered": 0.8181818181818182
+        },
+        "btle": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 0.7777777777777778
+        },
+        "chirpss": {
+          "n": 16,
+          "recall_iou30": 0.75,
+          "covered": 0.9375
+        },
+        "dmr": {
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.8571428571428571
+        },
+        "dvbs2": {
+          "n": 14,
+          "recall_iou30": 0.9285714285714286,
+          "covered": 0.8571428571428571
+        },
+        "fm": {
+          "n": 17,
+          "recall_iou30": 0.5882352941176471,
+          "covered": 0.9411764705882353
+        },
+        "gsm": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.9
+        },
+        "lfm-data": {
+          "n": 6,
           "recall_iou30": 0.5,
+          "covered": 1.0
+        },
+        "lfm-radar": {
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.9230769230769231
+        },
+        "lora": {
+          "n": 3,
+          "recall_iou30": 1.0,
+          "covered": 0.6666666666666666
+        },
+        "ofdm-1024": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 1.0
+        },
+        "ofdm-1200": {
+          "n": 8,
+          "recall_iou30": 0.625,
           "covered": 1.0
         },
         "ofdm-128": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 8,
+          "recall_iou30": 0.375,
+          "covered": 0.75
+        },
+        "ofdm-180": {
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.7777777777777778
+        },
+        "ofdm-2048": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.875
         },
         "ofdm-256": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.8888888888888888
         },
         "ofdm-300": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.8666666666666667
         },
         "ofdm-512": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.8888888888888888
         },
         "ofdm-600": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.8571428571428571
         },
         "ofdm-64": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 1.0,
           "covered": 1.0
         },
         "ofdm-72": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.9230769230769231
         },
         "ofdm-900": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 6,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 0.8333333333333334
         },
         "ook": {
-          "n": 4,
-          "recall_iou30": 0.25,
-          "covered": 0.5
+          "n": 12,
+          "recall_iou30": 0.5,
+          "covered": 0.3333333333333333
         },
         "p25": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.7333333333333333,
+          "covered": 0.8
         },
         "qpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
           "covered": 1.0
         },
         "tone": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.3333333333333333
+          "n": 13,
+          "recall_iou30": 0.15384615384615385,
+          "covered": 0.46153846153846156
         },
         "zigbee": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.7692307692307693,
+          "covered": 0.6923076923076923
         }
       }
     },
     "energy_per_bin": {
-      "n_signals": 140,
-      "recall_iou50": 0.55,
-      "recall_iou30": 0.6285714285714286,
-      "covered": 0.37857142857142856,
-      "false_alarms_per_scene": 0.16666666666666666,
-      "fragments_per_scene": 1.9666666666666666,
-      "predicted_boxes_per_scene": 3.4166666666666665,
-      "cell_false_alarm_rate_far_from_signals": 0.0009661641773826595,
-      "median_iou": 0.8140285905858572,
-      "median_fc_err_over_bw": 0.05100732744787334,
-      "median_bw_err_rel": 0.12886597938144329,
-      "median_t_start_err_rel": 0.0047930648100518785,
-      "median_t_stop_err_rel": 0.005792020385020263,
-      "runtime_ms_per_scene": 25.423820000010743,
+      "n_signals": 752,
+      "recall_iou50": 0.5398936170212766,
+      "recall_iou30": 0.6156914893617021,
+      "covered": 0.4321808510638298,
+      "false_alarms_per_scene": 0.23,
+      "fragments_per_scene": 1.5166666666666666,
+      "predicted_boxes_per_scene": 3.1,
+      "cell_false_alarm_rate_far_from_signals": 0.000997455143926455,
+      "median_iou": 0.8297351063140364,
+      "median_fc_err_over_bw": 0.04369163112041562,
+      "median_bw_err_rel": 0.12262799856784797,
+      "median_t_start_err_rel": 0.006346994966756196,
+      "median_t_stop_err_rel": 0.006145224337770285,
+      "runtime_ms_per_scene": 23.72087475333179,
       "recall_iou30_by_class": {
         "1024qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 14,
+          "recall_iou30": 0.6428571428571429,
+          "covered": 0.2857142857142857
+        },
+        "128qam_cross": {
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.5714285714285714
         },
         "16apsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.5384615384615384
         },
         "16ask": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.6666666666666666
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.625
         },
         "16fsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 10,
+          "recall_iou30": 0.8,
           "covered": 1.0
         },
         "16gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.375
         },
         "16gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.3333333333333333
-        },
-        "16msk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "16psk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "256qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "2gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
-        },
-        "2gmsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "2msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
+          "n": 12,
+          "recall_iou30": 0.8333333333333334,
           "covered": 0.6666666666666666
         },
-        "32ask": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
+        "16msk": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.4
         },
-        "32psk": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "32qam": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "4ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.0
-        },
-        "4fsk": {
-          "n": 4,
+        "16psk": {
+          "n": 6,
           "recall_iou30": 0.5,
+          "covered": 0.16666666666666666
+        },
+        "16qam": {
+          "n": 11,
+          "recall_iou30": 0.8181818181818182,
+          "covered": 0.5454545454545454
+        },
+        "256qam": {
+          "n": 11,
+          "recall_iou30": 0.6363636363636364,
+          "covered": 0.45454545454545453
+        },
+        "2fsk": {
+          "n": 10,
+          "recall_iou30": 0.4,
+          "covered": 0.2
+        },
+        "2gfsk": {
+          "n": 16,
+          "recall_iou30": 0.625,
+          "covered": 0.4375
+        },
+        "2gmsk": {
+          "n": 8,
+          "recall_iou30": 0.75,
           "covered": 0.5
         },
-        "4gfsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+        "2msk": {
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.6923076923076923
         },
-        "4gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 1.0
-        },
-        "4msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
-        },
-        "512qam_cross": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "64ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.3333333333333333
-        },
-        "64psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "64qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "80211a": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.0
-        },
-        "8ask": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "8fsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "8gfsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
+        "32apsk": {
+          "n": 8,
+          "recall_iou30": 0.375,
           "covered": 0.25
         },
-        "8gmsk": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.0
-        },
-        "8psk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
-        },
-        "adsb-long": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
-        },
-        "adsb-short": {
-          "n": 3,
-          "recall_iou30": 0.0,
+        "32ask": {
+          "n": 15,
+          "recall_iou30": 0.5333333333333333,
           "covered": 0.3333333333333333
         },
+        "32psk": {
+          "n": 6,
+          "recall_iou30": 0.5,
+          "covered": 0.3333333333333333
+        },
+        "32qam": {
+          "n": 11,
+          "recall_iou30": 0.6363636363636364,
+          "covered": 0.36363636363636365
+        },
+        "32qam_cross": {
+          "n": 10,
+          "recall_iou30": 0.5,
+          "covered": 0.1
+        },
+        "4ask": {
+          "n": 11,
+          "recall_iou30": 0.36363636363636365,
+          "covered": 0.2727272727272727
+        },
+        "4fsk": {
+          "n": 18,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 0.4444444444444444
+        },
+        "4gfsk": {
+          "n": 15,
+          "recall_iou30": 0.4,
+          "covered": 0.4
+        },
+        "4gmsk": {
+          "n": 18,
+          "recall_iou30": 0.5555555555555556,
+          "covered": 0.5
+        },
+        "4msk": {
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.75
+        },
+        "512qam_cross": {
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.2727272727272727
+        },
+        "64ask": {
+          "n": 14,
+          "recall_iou30": 0.6428571428571429,
+          "covered": 0.42857142857142855
+        },
+        "64psk": {
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.4444444444444444
+        },
+        "64qam": {
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.2857142857142857
+        },
+        "80211a": {
+          "n": 13,
+          "recall_iou30": 0.6153846153846154,
+          "covered": 0.23076923076923078
+        },
+        "8ask": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.3
+        },
+        "8fsk": {
+          "n": 12,
+          "recall_iou30": 0.5833333333333334,
+          "covered": 0.5833333333333334
+        },
+        "8gfsk": {
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.5
+        },
+        "8gmsk": {
+          "n": 15,
+          "recall_iou30": 0.7333333333333333,
+          "covered": 0.4
+        },
+        "8msk": {
+          "n": 12,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.75
+        },
+        "8psk": {
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.625
+        },
+        "adsb-long": {
+          "n": 16,
+          "recall_iou30": 0.3125,
+          "covered": 0.1875
+        },
+        "adsb-short": {
+          "n": 19,
+          "recall_iou30": 0.21052631578947367,
+          "covered": 0.15789473684210525
+        },
         "am-dsb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.38461538461538464,
+          "covered": 0.07692307692307693
         },
         "am-dsb-sc": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.5384615384615384
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 0.6,
+          "covered": 0.4
         },
         "am-usb": {
-          "n": 2,
+          "n": 7,
           "recall_iou30": 1.0,
-          "covered": 0.5
+          "covered": 0.2857142857142857
         },
         "bpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 11,
+          "recall_iou30": 0.7272727272727273,
+          "covered": 0.36363636363636365
         },
         "btle": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 9,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.3333333333333333
         },
         "chirpss": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 16,
+          "recall_iou30": 0.8125,
+          "covered": 0.75
         },
         "dmr": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 7,
+          "recall_iou30": 0.42857142857142855,
+          "covered": 0.5714285714285714
         },
         "dvbs2": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 14,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.35714285714285715
         },
         "fm": {
-          "n": 5,
-          "recall_iou30": 0.4,
-          "covered": 0.6
+          "n": 17,
+          "recall_iou30": 0.47058823529411764,
+          "covered": 0.5294117647058824
         },
         "gsm": {
-          "n": 2,
-          "recall_iou30": 0.0,
+          "n": 10,
+          "recall_iou30": 0.6,
           "covered": 0.5
         },
         "lfm-data": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "lfm-radar": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "lora": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "ofdm-1024": {
           "n": 6,
-          "recall_iou30": 0.8333333333333334,
-          "covered": 0.5
-        },
-        "ofdm-1200": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.5
-        },
-        "ofdm-128": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "ofdm-256": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "ofdm-300": {
-          "n": 3,
           "recall_iou30": 0.6666666666666666,
           "covered": 1.0
         },
-        "ofdm-512": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+        "lfm-radar": {
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.7692307692307693
         },
-        "ofdm-600": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
-        },
-        "ofdm-64": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "ofdm-72": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
-        },
-        "ofdm-900": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "ook": {
-          "n": 4,
-          "recall_iou30": 0.25,
-          "covered": 0.25
-        },
-        "p25": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "qpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "tone": {
+        "lora": {
           "n": 3,
-          "recall_iou30": 0.0,
+          "recall_iou30": 1.0,
+          "covered": 0.6666666666666666
+        },
+        "ofdm-1024": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.4
+        },
+        "ofdm-1200": {
+          "n": 8,
+          "recall_iou30": 0.375,
+          "covered": 0.625
+        },
+        "ofdm-128": {
+          "n": 8,
+          "recall_iou30": 0.375,
+          "covered": 0.5
+        },
+        "ofdm-180": {
+          "n": 9,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.4444444444444444
+        },
+        "ofdm-2048": {
+          "n": 8,
+          "recall_iou30": 0.5,
+          "covered": 0.5
+        },
+        "ofdm-256": {
+          "n": 9,
+          "recall_iou30": 0.5555555555555556,
           "covered": 0.3333333333333333
         },
-        "zigbee": {
-          "n": 2,
+        "ofdm-300": {
+          "n": 15,
+          "recall_iou30": 0.4666666666666667,
+          "covered": 0.3333333333333333
+        },
+        "ofdm-512": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 0.6666666666666666
+        },
+        "ofdm-600": {
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.5714285714285714
+        },
+        "ofdm-64": {
+          "n": 10,
           "recall_iou30": 0.5,
-          "covered": 0.0
+          "covered": 0.1
+        },
+        "ofdm-72": {
+          "n": 13,
+          "recall_iou30": 0.7692307692307693,
+          "covered": 0.6153846153846154
+        },
+        "ofdm-900": {
+          "n": 6,
+          "recall_iou30": 0.5,
+          "covered": 0.6666666666666666
+        },
+        "ook": {
+          "n": 12,
+          "recall_iou30": 0.16666666666666666,
+          "covered": 0.08333333333333333
+        },
+        "p25": {
+          "n": 15,
+          "recall_iou30": 0.4666666666666667,
+          "covered": 0.4666666666666667
+        },
+        "qpsk": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 0.14285714285714285
+        },
+        "tone": {
+          "n": 13,
+          "recall_iou30": 0.07692307692307693,
+          "covered": 0.23076923076923078
+        },
+        "zigbee": {
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
+          "covered": 0.3076923076923077
         }
       }
     },
     "energy_median+6dB": {
-      "n_signals": 140,
-      "recall_iou50": 0.6571428571428571,
-      "recall_iou30": 0.7285714285714285,
-      "covered": 0.4857142857142857,
-      "false_alarms_per_scene": 0.11666666666666667,
-      "fragments_per_scene": 0.2833333333333333,
-      "predicted_boxes_per_scene": 1.9333333333333333,
-      "cell_false_alarm_rate_far_from_signals": 0.0002625240327883236,
-      "median_iou": 0.8398408220644105,
-      "median_fc_err_over_bw": 0.022990144125756107,
-      "median_bw_err_rel": 0.08573178199632578,
-      "median_t_start_err_rel": 0.002333795531595748,
-      "median_t_stop_err_rel": 0.002191469688721499,
-      "runtime_ms_per_scene": 21.461307699996723,
+      "n_signals": 752,
+      "recall_iou50": 0.6529255319148937,
+      "recall_iou30": 0.7207446808510638,
+      "covered": 0.5345744680851063,
+      "false_alarms_per_scene": 0.15,
+      "fragments_per_scene": 0.3333333333333333,
+      "predicted_boxes_per_scene": 2.12,
+      "cell_false_alarm_rate_far_from_signals": 0.00027139856268205135,
+      "median_iou": 0.8514442521778939,
+      "median_fc_err_over_bw": 0.02832193072973714,
+      "median_bw_err_rel": 0.09433962264150944,
+      "median_t_start_err_rel": 0.0022438952848867055,
+      "median_t_stop_err_rel": 0.0023222297019504018,
+      "runtime_ms_per_scene": 20.218017903329912,
       "recall_iou30_by_class": {
         "1024qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 14,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.35714285714285715
+        },
+        "128qam_cross": {
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.7142857142857143
         },
         "16apsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.3076923076923077
         },
         "16ask": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.3333333333333333
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.375
         },
         "16fsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 10,
+          "recall_iou30": 0.9,
+          "covered": 0.7
         },
         "16gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.625
         },
         "16gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.6666666666666666
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 0.75
         },
         "16msk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 10,
+          "recall_iou30": 0.9,
+          "covered": 0.5
         },
         "16psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.5
+        },
+        "16qam": {
+          "n": 11,
+          "recall_iou30": 0.9090909090909091,
+          "covered": 0.45454545454545453
         },
         "256qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 11,
+          "recall_iou30": 0.7272727272727273,
+          "covered": 0.6363636363636364
+        },
+        "2fsk": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.5
         },
         "2gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 16,
+          "recall_iou30": 0.75,
+          "covered": 0.3125
         },
         "2gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
+          "n": 8,
+          "recall_iou30": 0.625,
           "covered": 0.5
         },
         "2msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.7692307692307693
+        },
+        "32apsk": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.25
         },
         "32ask": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.4
         },
         "32psk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 6,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 0.6666666666666666
         },
         "32qam": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.6666666666666666
+          "n": 11,
+          "recall_iou30": 0.6363636363636364,
+          "covered": 0.7272727272727273
+        },
+        "32qam_cross": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.3
         },
         "4ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.3333333333333333
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.45454545454545453
         },
         "4fsk": {
-          "n": 4,
-          "recall_iou30": 0.5,
-          "covered": 0.25
+          "n": 18,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.5555555555555556
         },
         "4gfsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 15,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.6666666666666666
         },
         "4gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 1.0
+          "n": 18,
+          "recall_iou30": 0.6111111111111112,
+          "covered": 0.5555555555555556
         },
         "4msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.6666666666666666
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.75
         },
         "512qam_cross": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.45454545454545453
         },
         "64ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.6666666666666666
+          "n": 14,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.5714285714285714
         },
         "64psk": {
-          "n": 2,
+          "n": 9,
           "recall_iou30": 1.0,
-          "covered": 0.5
+          "covered": 0.6666666666666666
         },
         "64qam": {
-          "n": 1,
+          "n": 7,
           "recall_iou30": 1.0,
-          "covered": 0.0
+          "covered": 0.42857142857142855
         },
         "80211a": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.6153846153846154
         },
         "8ask": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.5
         },
         "8fsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 0.9166666666666666
         },
         "8gfsk": {
-          "n": 4,
-          "recall_iou30": 1.0,
-          "covered": 0.25
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.625
         },
         "8gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.5333333333333333
+        },
+        "8msk": {
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 0.75
         },
         "8psk": {
-          "n": 2,
+          "n": 8,
           "recall_iou30": 1.0,
           "covered": 0.5
         },
         "adsb-long": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 16,
+          "recall_iou30": 0.1875,
+          "covered": 0.3125
         },
         "adsb-short": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.3333333333333333
+          "n": 19,
+          "recall_iou30": 0.2631578947368421,
+          "covered": 0.05263157894736842
         },
         "am-dsb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
+          "covered": 0.15384615384615385
         },
         "am-dsb-sc": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 13,
+          "recall_iou30": 0.5384615384615384,
+          "covered": 0.5384615384615384
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.7
         },
         "am-usb": {
-          "n": 2,
+          "n": 7,
           "recall_iou30": 1.0,
-          "covered": 1.0
+          "covered": 0.8571428571428571
         },
         "bpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 11,
+          "recall_iou30": 0.8181818181818182,
+          "covered": 0.6363636363636364
         },
         "btle": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.5555555555555556
         },
         "chirpss": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 16,
+          "recall_iou30": 0.75,
+          "covered": 0.5
         },
         "dmr": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 7,
+          "recall_iou30": 0.5714285714285714,
+          "covered": 0.5714285714285714
         },
         "dvbs2": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 14,
+          "recall_iou30": 0.9285714285714286,
           "covered": 0.5
         },
         "fm": {
-          "n": 5,
-          "recall_iou30": 0.6,
-          "covered": 0.8
+          "n": 17,
+          "recall_iou30": 0.6470588235294118,
+          "covered": 0.6470588235294118
         },
         "gsm": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.8
         },
         "lfm-data": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.6666666666666666
+          "n": 6,
+          "recall_iou30": 0.5,
+          "covered": 0.8333333333333334
         },
         "lfm-radar": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.5384615384615384
         },
         "lora": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "ofdm-1024": {
-          "n": 6,
-          "recall_iou30": 0.8333333333333334,
-          "covered": 0.5
-        },
-        "ofdm-1200": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "ofdm-128": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "ofdm-256": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "ofdm-300": {
           "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
-        },
-        "ofdm-512": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
-        },
-        "ofdm-600": {
-          "n": 2,
           "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "ofdm-64": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "ofdm-72": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
-        },
-        "ofdm-900": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
-        },
-        "ook": {
-          "n": 4,
-          "recall_iou30": 0.25,
-          "covered": 0.0
-        },
-        "p25": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "qpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "tone": {
-          "n": 3,
-          "recall_iou30": 0.0,
           "covered": 0.3333333333333333
         },
-        "zigbee": {
-          "n": 2,
+        "ofdm-1024": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.6
+        },
+        "ofdm-1200": {
+          "n": 8,
+          "recall_iou30": 0.5,
+          "covered": 0.625
+        },
+        "ofdm-128": {
+          "n": 8,
+          "recall_iou30": 0.375,
+          "covered": 0.5
+        },
+        "ofdm-180": {
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.5555555555555556
+        },
+        "ofdm-2048": {
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.625
+        },
+        "ofdm-256": {
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.6666666666666666
+        },
+        "ofdm-300": {
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.6
+        },
+        "ofdm-512": {
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.7777777777777778
+        },
+        "ofdm-600": {
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.7142857142857143
+        },
+        "ofdm-64": {
+          "n": 10,
           "recall_iou30": 1.0,
-          "covered": 0.0
+          "covered": 0.6
+        },
+        "ofdm-72": {
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.7692307692307693
+        },
+        "ofdm-900": {
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.5
+        },
+        "ook": {
+          "n": 12,
+          "recall_iou30": 0.4166666666666667,
+          "covered": 0.08333333333333333
+        },
+        "p25": {
+          "n": 15,
+          "recall_iou30": 0.7333333333333333,
+          "covered": 0.6
+        },
+        "qpsk": {
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.2857142857142857
+        },
+        "tone": {
+          "n": 13,
+          "recall_iou30": 0.0,
+          "covered": 0.3076923076923077
+        },
+        "zigbee": {
+          "n": 13,
+          "recall_iou30": 0.7692307692307693,
+          "covered": 0.46153846153846156
         }
       }
     },
     "cfar_freq_g8_t24": {
-      "n_signals": 140,
-      "recall_iou50": 0.42857142857142855,
-      "recall_iou30": 0.6,
-      "covered": 0.12142857142857143,
-      "false_alarms_per_scene": 0.3333333333333333,
-      "fragments_per_scene": 1.6666666666666667,
-      "predicted_boxes_per_scene": 3.0,
-      "cell_false_alarm_rate_far_from_signals": 0.0011109341726911585,
-      "median_iou": 0.7768749096655441,
-      "median_fc_err_over_bw": 0.021189541597438445,
-      "median_bw_err_rel": 0.1408730158730158,
-      "median_t_start_err_rel": 0.017108268454499198,
-      "median_t_stop_err_rel": 0.011282469379537023,
-      "runtime_ms_per_scene": 29.60088298333782,
+      "n_signals": 752,
+      "recall_iou50": 0.4747340425531915,
+      "recall_iou30": 0.6289893617021277,
+      "covered": 0.13164893617021275,
+      "false_alarms_per_scene": 0.30333333333333334,
+      "fragments_per_scene": 1.5666666666666667,
+      "predicted_boxes_per_scene": 3.06,
+      "cell_false_alarm_rate_far_from_signals": 0.001112679016074232,
+      "median_iou": 0.7735570160857224,
+      "median_fc_err_over_bw": 0.033034495483136875,
+      "median_bw_err_rel": 0.14285714285714285,
+      "median_t_start_err_rel": 0.01801407513742516,
+      "median_t_stop_err_rel": 0.014676269600999,
+      "runtime_ms_per_scene": 24.438833603333784,
       "recall_iou30_by_class": {
         "1024qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
+          "n": 14,
+          "recall_iou30": 0.35714285714285715,
           "covered": 0.0
         },
+        "128qam_cross": {
+          "n": 7,
+          "recall_iou30": 0.5714285714285714,
+          "covered": 0.14285714285714285
+        },
         "16apsk": {
-          "n": 4,
-          "recall_iou30": 0.25,
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
           "covered": 0.0
         },
         "16ask": {
-          "n": 3,
-          "recall_iou30": 1.0,
+          "n": 8,
+          "recall_iou30": 0.75,
           "covered": 0.0
         },
         "16fsk": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 1.0,
-          "covered": 0.5
+          "covered": 0.2
         },
         "16gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
+          "n": 8,
+          "recall_iou30": 0.875,
           "covered": 0.0
         },
         "16gmsk": {
-          "n": 3,
+          "n": 12,
           "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
+          "covered": 0.08333333333333333
         },
         "16msk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 10,
+          "recall_iou30": 0.9,
+          "covered": 0.1
         },
         "16psk": {
-          "n": 2,
-          "recall_iou30": 0.5,
+          "n": 6,
+          "recall_iou30": 0.3333333333333333,
           "covered": 0.0
+        },
+        "16qam": {
+          "n": 11,
+          "recall_iou30": 0.8181818181818182,
+          "covered": 0.09090909090909091
         },
         "256qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
           "covered": 0.0
         },
+        "2fsk": {
+          "n": 10,
+          "recall_iou30": 0.6,
+          "covered": 0.3
+        },
         "2gfsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
+          "n": 16,
+          "recall_iou30": 0.6875,
           "covered": 0.0
         },
         "2gmsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.25
         },
         "2msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.15384615384615385
+        },
+        "32apsk": {
+          "n": 8,
+          "recall_iou30": 0.5,
           "covered": 0.0
         },
         "32ask": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.4666666666666667,
+          "covered": 0.13333333333333333
         },
         "32psk": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 6,
+          "recall_iou30": 0.16666666666666666,
+          "covered": 0.16666666666666666
         },
         "32qam": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
+          "n": 11,
+          "recall_iou30": 0.45454545454545453,
+          "covered": 0.09090909090909091
+        },
+        "32qam_cross": {
+          "n": 10,
+          "recall_iou30": 0.3,
           "covered": 0.0
         },
         "4ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
           "covered": 0.0
         },
         "4fsk": {
-          "n": 4,
-          "recall_iou30": 0.5,
-          "covered": 0.25
+          "n": 18,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.2777777777777778
         },
         "4gfsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.7333333333333333,
+          "covered": 0.06666666666666667
         },
         "4gmsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 18,
+          "recall_iou30": 0.6111111111111112,
+          "covered": 0.1111111111111111
         },
         "4msk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.125
         },
         "512qam_cross": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.09090909090909091
         },
         "64ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
+          "n": 14,
+          "recall_iou30": 0.5,
           "covered": 0.0
         },
         "64psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.2222222222222222
         },
         "64qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
           "covered": 0.0
         },
         "80211a": {
-          "n": 3,
-          "recall_iou30": 0.0,
+          "n": 13,
+          "recall_iou30": 0.6153846153846154,
           "covered": 0.0
         },
         "8ask": {
-          "n": 1,
-          "recall_iou30": 0.0,
+          "n": 10,
+          "recall_iou30": 0.4,
           "covered": 0.0
         },
         "8fsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
+          "n": 12,
+          "recall_iou30": 0.9166666666666666,
           "covered": 0.0
         },
         "8gfsk": {
-          "n": 4,
-          "recall_iou30": 0.75,
-          "covered": 0.5
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.25
         },
         "8gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.9333333333333333,
+          "covered": 0.13333333333333333
+        },
+        "8msk": {
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 0.16666666666666666
         },
         "8psk": {
-          "n": 2,
-          "recall_iou30": 0.5,
+          "n": 8,
+          "recall_iou30": 0.625,
           "covered": 0.0
         },
         "adsb-long": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 16,
+          "recall_iou30": 0.0625,
+          "covered": 0.125
         },
         "adsb-short": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.3333333333333333
+          "n": 19,
+          "recall_iou30": 0.05263157894736842,
+          "covered": 0.05263157894736842
         },
         "am-dsb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
+          "covered": 0.07692307692307693
         },
         "am-dsb-sc": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.07692307692307693
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.2
         },
         "am-usb": {
-          "n": 2,
+          "n": 7,
           "recall_iou30": 1.0,
           "covered": 0.0
         },
         "bpsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
+          "n": 11,
+          "recall_iou30": 0.6363636363636364,
           "covered": 0.0
         },
         "btle": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
+          "n": 9,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.1111111111111111
         },
         "chirpss": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 16,
+          "recall_iou30": 0.6875,
+          "covered": 0.375
         },
         "dmr": {
-          "n": 1,
-          "recall_iou30": 1.0,
+          "n": 7,
+          "recall_iou30": 0.5714285714285714,
           "covered": 0.0
         },
         "dvbs2": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 14,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.07142857142857142
         },
         "fm": {
-          "n": 5,
-          "recall_iou30": 0.6,
-          "covered": 0.4
+          "n": 17,
+          "recall_iou30": 0.7058823529411765,
+          "covered": 0.47058823529411764
         },
         "gsm": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 10,
+          "recall_iou30": 0.7,
           "covered": 0.5
         },
         "lfm-data": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "lfm-radar": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
-        },
-        "lora": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "ofdm-1024": {
           "n": 6,
           "recall_iou30": 0.6666666666666666,
           "covered": 0.16666666666666666
         },
+        "lfm-radar": {
+          "n": 13,
+          "recall_iou30": 1.0,
+          "covered": 0.46153846153846156
+        },
+        "lora": {
+          "n": 3,
+          "recall_iou30": 1.0,
+          "covered": 0.0
+        },
+        "ofdm-1024": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.3
+        },
         "ofdm-1200": {
-          "n": 2,
+          "n": 8,
           "recall_iou30": 0.5,
           "covered": 0.0
         },
         "ofdm-128": {
-          "n": 1,
-          "recall_iou30": 0.0,
+          "n": 8,
+          "recall_iou30": 0.375,
           "covered": 0.0
         },
+        "ofdm-180": {
+          "n": 9,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.1111111111111111
+        },
+        "ofdm-2048": {
+          "n": 8,
+          "recall_iou30": 0.5,
+          "covered": 0.125
+        },
         "ofdm-256": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
           "covered": 0.0
         },
         "ofdm-300": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.6666666666666666
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.2
         },
         "ofdm-512": {
-          "n": 2,
+          "n": 9,
           "recall_iou30": 1.0,
-          "covered": 0.0
+          "covered": 0.1111111111111111
         },
         "ofdm-600": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.5714285714285714
         },
         "ofdm-64": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 1.0,
-          "covered": 0.0
+          "covered": 0.1
         },
         "ofdm-72": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.15384615384615385
         },
         "ofdm-900": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.3333333333333333
         },
         "ook": {
-          "n": 4,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 12,
+          "recall_iou30": 0.25,
+          "covered": 0.16666666666666666
         },
         "p25": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.4,
+          "covered": 0.2
         },
         "qpsk": {
-          "n": 2,
-          "recall_iou30": 0.5,
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
           "covered": 0.0
         },
         "tone": {
-          "n": 3,
+          "n": 13,
           "recall_iou30": 0.0,
-          "covered": 0.3333333333333333
+          "covered": 0.38461538461538464
         },
         "zigbee": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
+          "covered": 0.07692307692307693
         }
       }
     },
     "cfar_freq_g24_t48": {
-      "n_signals": 140,
-      "recall_iou50": 0.6285714285714286,
-      "recall_iou30": 0.7357142857142858,
-      "covered": 0.4357142857142857,
-      "false_alarms_per_scene": 0.36666666666666664,
-      "fragments_per_scene": 0.65,
-      "predicted_boxes_per_scene": 2.4833333333333334,
-      "cell_false_alarm_rate_far_from_signals": 0.0010134654037335373,
-      "median_iou": 0.7424510182401356,
-      "median_fc_err_over_bw": 0.03431569250787663,
-      "median_bw_err_rel": 0.1972222222222222,
-      "median_t_start_err_rel": 0.0197285483185042,
-      "median_t_stop_err_rel": 0.010318539129433353,
-      "runtime_ms_per_scene": 26.563209866643923,
+      "n_signals": 752,
+      "recall_iou50": 0.6050531914893617,
+      "recall_iou30": 0.7473404255319149,
+      "covered": 0.4095744680851064,
+      "false_alarms_per_scene": 0.3566666666666667,
+      "fragments_per_scene": 0.7066666666666667,
+      "predicted_boxes_per_scene": 2.58,
+      "cell_false_alarm_rate_far_from_signals": 0.0009881794183469468,
+      "median_iou": 0.7733318588949898,
+      "median_fc_err_over_bw": 0.03332241857823198,
+      "median_bw_err_rel": 0.15384615384615385,
+      "median_t_start_err_rel": 0.017615812676158128,
+      "median_t_stop_err_rel": 0.016191210485736313,
+      "runtime_ms_per_scene": 23.87002063333038,
       "recall_iou30_by_class": {
         "1024qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 14,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.07142857142857142
+        },
+        "128qam_cross": {
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.2857142857142857
         },
         "16apsk": {
-          "n": 4,
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.23076923076923078
+        },
+        "16ask": {
+          "n": 8,
           "recall_iou30": 1.0,
           "covered": 0.25
         },
-        "16ask": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
-        },
         "16fsk": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 1.0,
-          "covered": 1.0
+          "covered": 0.6
         },
         "16gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.125
         },
         "16gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.3333333333333333
-        },
-        "16msk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "16psk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "256qam": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "2gfsk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.6666666666666666
-        },
-        "2gmsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "2msk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 1.0
-        },
-        "32ask": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
-        },
-        "32psk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "32qam": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "4ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.3333333333333333
-        },
-        "4fsk": {
-          "n": 4,
+          "n": 12,
           "recall_iou30": 0.75,
           "covered": 0.5
         },
-        "4gfsk": {
-          "n": 1,
+        "16msk": {
+          "n": 10,
           "recall_iou30": 1.0,
-          "covered": 1.0
+          "covered": 0.4
         },
-        "4gmsk": {
-          "n": 2,
+        "16psk": {
+          "n": 6,
+          "recall_iou30": 0.3333333333333333,
+          "covered": 0.3333333333333333
+        },
+        "16qam": {
+          "n": 11,
           "recall_iou30": 1.0,
+          "covered": 0.45454545454545453
+        },
+        "256qam": {
+          "n": 11,
+          "recall_iou30": 0.7272727272727273,
+          "covered": 0.2727272727272727
+        },
+        "2fsk": {
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.4
+        },
+        "2gfsk": {
+          "n": 16,
+          "recall_iou30": 0.8125,
+          "covered": 0.3125
+        },
+        "2gmsk": {
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.375
+        },
+        "2msk": {
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.6923076923076923
+        },
+        "32apsk": {
+          "n": 8,
+          "recall_iou30": 0.25,
+          "covered": 0.0
+        },
+        "32ask": {
+          "n": 15,
+          "recall_iou30": 0.8666666666666667,
+          "covered": 0.26666666666666666
+        },
+        "32psk": {
+          "n": 6,
+          "recall_iou30": 0.8333333333333334,
           "covered": 0.5
         },
+        "32qam": {
+          "n": 11,
+          "recall_iou30": 0.7272727272727273,
+          "covered": 0.2727272727272727
+        },
+        "32qam_cross": {
+          "n": 10,
+          "recall_iou30": 0.6,
+          "covered": 0.0
+        },
+        "4ask": {
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.2727272727272727
+        },
+        "4fsk": {
+          "n": 18,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 0.6111111111111112
+        },
+        "4gfsk": {
+          "n": 15,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.6666666666666666
+        },
+        "4gmsk": {
+          "n": 18,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.3888888888888889
+        },
         "4msk": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.375
         },
         "512qam_cross": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 1.0
+          "n": 11,
+          "recall_iou30": 0.5454545454545454,
+          "covered": 0.45454545454545453
         },
         "64ask": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.0
+          "n": 14,
+          "recall_iou30": 0.7857142857142857,
+          "covered": 0.2857142857142857
         },
         "64psk": {
-          "n": 2,
+          "n": 9,
           "recall_iou30": 1.0,
-          "covered": 1.0
+          "covered": 0.7777777777777778
         },
         "64qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.5714285714285714
         },
         "80211a": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 0.3076923076923077
         },
         "8ask": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 10,
+          "recall_iou30": 0.7,
+          "covered": 0.3
         },
         "8fsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 12,
+          "recall_iou30": 0.9166666666666666,
+          "covered": 0.5
         },
         "8gfsk": {
-          "n": 4,
+          "n": 8,
           "recall_iou30": 1.0,
           "covered": 0.5
         },
         "8gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
-          "covered": 0.3333333333333333
-        },
-        "8psk": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "adsb-long": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.0
-        },
-        "adsb-short": {
-          "n": 3,
-          "recall_iou30": 0.0,
+          "n": 15,
+          "recall_iou30": 0.8,
           "covered": 0.6666666666666666
         },
+        "8msk": {
+          "n": 12,
+          "recall_iou30": 0.75,
+          "covered": 0.4166666666666667
+        },
+        "8psk": {
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 0.125
+        },
+        "adsb-long": {
+          "n": 16,
+          "recall_iou30": 0.25,
+          "covered": 0.25
+        },
+        "adsb-short": {
+          "n": 19,
+          "recall_iou30": 0.10526315789473684,
+          "covered": 0.15789473684210525
+        },
         "am-dsb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.46153846153846156,
+          "covered": 0.15384615384615385
         },
         "am-dsb-sc": {
-          "n": 2,
-          "recall_iou30": 1.0,
+          "n": 13,
+          "recall_iou30": 0.7692307692307693,
+          "covered": 0.38461538461538464
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 0.8,
           "covered": 0.5
         },
         "am-usb": {
-          "n": 2,
+          "n": 7,
           "recall_iou30": 1.0,
-          "covered": 1.0
+          "covered": 0.7142857142857143
         },
         "bpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 11,
+          "recall_iou30": 0.9090909090909091,
+          "covered": 0.09090909090909091
         },
         "btle": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.4444444444444444
         },
         "chirpss": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 16,
+          "recall_iou30": 0.6875,
+          "covered": 0.375
         },
         "dmr": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 0.42857142857142855
         },
         "dvbs2": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 14,
+          "recall_iou30": 0.9285714285714286,
+          "covered": 0.42857142857142855
         },
         "fm": {
-          "n": 5,
-          "recall_iou30": 0.6,
-          "covered": 0.8
+          "n": 17,
+          "recall_iou30": 0.6470588235294118,
+          "covered": 0.7058823529411765
         },
         "gsm": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 10,
+          "recall_iou30": 0.9,
+          "covered": 0.8
         },
         "lfm-data": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.3333333333333333
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.16666666666666666
         },
         "lfm-radar": {
-          "n": 2,
+          "n": 13,
           "recall_iou30": 1.0,
-          "covered": 0.5
+          "covered": 0.6153846153846154
         },
         "lora": {
-          "n": 1,
+          "n": 3,
           "recall_iou30": 1.0,
           "covered": 0.0
         },
         "ofdm-1024": {
-          "n": 6,
-          "recall_iou30": 0.6666666666666666,
+          "n": 10,
+          "recall_iou30": 0.8,
           "covered": 0.5
         },
         "ofdm-1200": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.5
+          "n": 8,
+          "recall_iou30": 0.625,
+          "covered": 0.375
         },
         "ofdm-128": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
+          "n": 8,
+          "recall_iou30": 0.5,
+          "covered": 0.125
+        },
+        "ofdm-180": {
+          "n": 9,
+          "recall_iou30": 0.7777777777777778,
+          "covered": 0.4444444444444444
+        },
+        "ofdm-2048": {
+          "n": 8,
+          "recall_iou30": 0.75,
+          "covered": 0.5
         },
         "ofdm-256": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 9,
+          "recall_iou30": 0.8888888888888888,
+          "covered": 0.4444444444444444
         },
         "ofdm-300": {
-          "n": 3,
+          "n": 15,
           "recall_iou30": 1.0,
-          "covered": 1.0
+          "covered": 0.4
         },
         "ofdm-512": {
-          "n": 2,
+          "n": 9,
           "recall_iou30": 1.0,
-          "covered": 0.5
+          "covered": 0.8888888888888888
         },
         "ofdm-600": {
-          "n": 2,
+          "n": 7,
           "recall_iou30": 1.0,
-          "covered": 0.5
+          "covered": 0.7142857142857143
         },
         "ofdm-64": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 10,
+          "recall_iou30": 0.9,
+          "covered": 0.7
         },
         "ofdm-72": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 1.0
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.6923076923076923
         },
         "ofdm-900": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 1.0
+          "n": 6,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 0.5
         },
         "ook": {
-          "n": 4,
-          "recall_iou30": 0.0,
+          "n": 12,
+          "recall_iou30": 0.3333333333333333,
           "covered": 0.25
         },
         "p25": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
+          "n": 15,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.5333333333333333
         },
         "qpsk": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.5
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 0.14285714285714285
         },
         "tone": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.3333333333333333
+          "n": 13,
+          "recall_iou30": 0.07692307692307693,
+          "covered": 0.46153846153846156
         },
         "zigbee": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
+          "n": 13,
+          "recall_iou30": 0.6923076923076923,
+          "covered": 0.38461538461538464
         }
       }
     },
     "cfar_2d_g2x1_t8x4": {
-      "n_signals": 140,
-      "recall_iou50": 0.11428571428571428,
-      "recall_iou30": 0.15714285714285714,
+      "n_signals": 752,
+      "recall_iou50": 0.10505319148936171,
+      "recall_iou30": 0.16489361702127658,
       "covered": 0.0,
       "false_alarms_per_scene": 0.05,
-      "fragments_per_scene": 0.7166666666666667,
-      "predicted_boxes_per_scene": 1.0333333333333334,
-      "cell_false_alarm_rate_far_from_signals": 0.0010013283089255662,
-      "median_iou": 0.6587629537218438,
-      "median_fc_err_over_bw": 0.061391026976600774,
-      "median_bw_err_rel": 0.2947362622804605,
-      "median_t_start_err_rel": 0.027614586131493805,
-      "median_t_stop_err_rel": 0.019698264401551462,
-      "runtime_ms_per_scene": 23.555556283357266,
+      "fragments_per_scene": 0.7033333333333334,
+      "predicted_boxes_per_scene": 1.0166666666666666,
+      "cell_false_alarm_rate_far_from_signals": 0.0010006336963821285,
+      "median_iou": 0.6970882355783531,
+      "median_fc_err_over_bw": 0.03551024756007179,
+      "median_bw_err_rel": 0.21739130434782597,
+      "median_t_start_err_rel": 0.02474214460427963,
+      "median_t_stop_err_rel": 0.019524248261998493,
+      "runtime_ms_per_scene": 21.9633153333344,
       "recall_iou30_by_class": {
         "1024qam": {
-          "n": 1,
+          "n": 14,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "128qam_cross": {
+          "n": 7,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "16apsk": {
-          "n": 4,
+          "n": 13,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "16ask": {
-          "n": 3,
+          "n": 8,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "16fsk": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 1.0,
           "covered": 0.0
         },
         "16gfsk": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
+          "n": 8,
+          "recall_iou30": 0.375,
           "covered": 0.0
         },
         "16gmsk": {
-          "n": 3,
-          "recall_iou30": 0.6666666666666666,
+          "n": 12,
+          "recall_iou30": 0.5833333333333334,
           "covered": 0.0
         },
         "16msk": {
-          "n": 1,
-          "recall_iou30": 1.0,
+          "n": 10,
+          "recall_iou30": 0.8,
           "covered": 0.0
         },
         "16psk": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "256qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "2gfsk": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "2gmsk": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "2msk": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "32ask": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "32psk": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "32qam": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "4ask": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "4fsk": {
-          "n": 4,
-          "recall_iou30": 0.25,
-          "covered": 0.0
-        },
-        "4gfsk": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "4gmsk": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "4msk": {
-          "n": 3,
-          "recall_iou30": 0.3333333333333333,
-          "covered": 0.0
-        },
-        "512qam_cross": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "64ask": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "64psk": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "64qam": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "80211a": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "8ask": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "8fsk": {
-          "n": 1,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "8gfsk": {
-          "n": 4,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "8gmsk": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "8psk": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "adsb-long": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "adsb-short": {
-          "n": 3,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "am-dsb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "am-dsb-sc": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "am-usb": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "bpsk": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "btle": {
-          "n": 2,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "chirpss": {
-          "n": 2,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "dmr": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "dvbs2": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "fm": {
-          "n": 5,
-          "recall_iou30": 0.2,
-          "covered": 0.0
-        },
-        "gsm": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "lfm-data": {
-          "n": 3,
-          "recall_iou30": 1.0,
-          "covered": 0.0
-        },
-        "lfm-radar": {
-          "n": 2,
-          "recall_iou30": 0.5,
-          "covered": 0.0
-        },
-        "lora": {
-          "n": 1,
-          "recall_iou30": 0.0,
-          "covered": 0.0
-        },
-        "ofdm-1024": {
           "n": 6,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
-        "ofdm-1200": {
-          "n": 2,
+        "16qam": {
+          "n": 11,
+          "recall_iou30": 0.09090909090909091,
+          "covered": 0.0
+        },
+        "256qam": {
+          "n": 11,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
-        "ofdm-128": {
-          "n": 1,
+        "2fsk": {
+          "n": 10,
+          "recall_iou30": 0.3,
+          "covered": 0.0
+        },
+        "2gfsk": {
+          "n": 16,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
-        "ofdm-256": {
-          "n": 2,
+        "2gmsk": {
+          "n": 8,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
-        "ofdm-300": {
+        "2msk": {
+          "n": 13,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "32apsk": {
+          "n": 8,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "32ask": {
+          "n": 15,
+          "recall_iou30": 0.06666666666666667,
+          "covered": 0.0
+        },
+        "32psk": {
+          "n": 6,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "32qam": {
+          "n": 11,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "32qam_cross": {
+          "n": 10,
+          "recall_iou30": 0.1,
+          "covered": 0.0
+        },
+        "4ask": {
+          "n": 11,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "4fsk": {
+          "n": 18,
+          "recall_iou30": 0.3888888888888889,
+          "covered": 0.0
+        },
+        "4gfsk": {
+          "n": 15,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "4gmsk": {
+          "n": 18,
+          "recall_iou30": 0.1111111111111111,
+          "covered": 0.0
+        },
+        "4msk": {
+          "n": 8,
+          "recall_iou30": 0.25,
+          "covered": 0.0
+        },
+        "512qam_cross": {
+          "n": 11,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "64ask": {
+          "n": 14,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "64psk": {
+          "n": 9,
+          "recall_iou30": 0.1111111111111111,
+          "covered": 0.0
+        },
+        "64qam": {
+          "n": 7,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "80211a": {
+          "n": 13,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "8ask": {
+          "n": 10,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "8fsk": {
+          "n": 12,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.0
+        },
+        "8gfsk": {
+          "n": 8,
+          "recall_iou30": 0.5,
+          "covered": 0.0
+        },
+        "8gmsk": {
+          "n": 15,
+          "recall_iou30": 0.3333333333333333,
+          "covered": 0.0
+        },
+        "8msk": {
+          "n": 12,
+          "recall_iou30": 0.25,
+          "covered": 0.0
+        },
+        "8psk": {
+          "n": 8,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "adsb-long": {
+          "n": 16,
+          "recall_iou30": 0.1875,
+          "covered": 0.0
+        },
+        "adsb-short": {
+          "n": 19,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "am-dsb": {
+          "n": 13,
+          "recall_iou30": 0.07692307692307693,
+          "covered": 0.0
+        },
+        "am-dsb-sc": {
+          "n": 13,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "am-usb": {
+          "n": 7,
+          "recall_iou30": 0.14285714285714285,
+          "covered": 0.0
+        },
+        "bpsk": {
+          "n": 11,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "btle": {
+          "n": 9,
+          "recall_iou30": 0.1111111111111111,
+          "covered": 0.0
+        },
+        "chirpss": {
+          "n": 16,
+          "recall_iou30": 0.6875,
+          "covered": 0.0
+        },
+        "dmr": {
+          "n": 7,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "dvbs2": {
+          "n": 14,
+          "recall_iou30": 0.07142857142857142,
+          "covered": 0.0
+        },
+        "fm": {
+          "n": 17,
+          "recall_iou30": 0.4117647058823529,
+          "covered": 0.0
+        },
+        "gsm": {
+          "n": 10,
+          "recall_iou30": 0.6,
+          "covered": 0.0
+        },
+        "lfm-data": {
+          "n": 6,
+          "recall_iou30": 0.6666666666666666,
+          "covered": 0.0
+        },
+        "lfm-radar": {
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 0.0
+        },
+        "lora": {
           "n": 3,
           "recall_iou30": 0.3333333333333333,
           "covered": 0.0
         },
+        "ofdm-1024": {
+          "n": 10,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "ofdm-1200": {
+          "n": 8,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "ofdm-128": {
+          "n": 8,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "ofdm-180": {
+          "n": 9,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "ofdm-2048": {
+          "n": 8,
+          "recall_iou30": 0.125,
+          "covered": 0.0
+        },
+        "ofdm-256": {
+          "n": 9,
+          "recall_iou30": 0.0,
+          "covered": 0.0
+        },
+        "ofdm-300": {
+          "n": 15,
+          "recall_iou30": 0.06666666666666667,
+          "covered": 0.0
+        },
         "ofdm-512": {
-          "n": 2,
+          "n": 9,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "ofdm-600": {
-          "n": 2,
-          "recall_iou30": 0.5,
+          "n": 7,
+          "recall_iou30": 0.2857142857142857,
           "covered": 0.0
         },
         "ofdm-64": {
-          "n": 2,
+          "n": 10,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "ofdm-72": {
-          "n": 2,
+          "n": 13,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "ofdm-900": {
-          "n": 1,
-          "recall_iou30": 0.0,
+          "n": 6,
+          "recall_iou30": 0.16666666666666666,
           "covered": 0.0
         },
         "ook": {
-          "n": 4,
-          "recall_iou30": 0.0,
+          "n": 12,
+          "recall_iou30": 0.25,
           "covered": 0.0
         },
         "p25": {
-          "n": 2,
+          "n": 15,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "qpsk": {
-          "n": 2,
+          "n": 7,
           "recall_iou30": 0.0,
           "covered": 0.0
         },
         "tone": {
-          "n": 3,
-          "recall_iou30": 0.0,
+          "n": 13,
+          "recall_iou30": 0.23076923076923078,
           "covered": 0.0
         },
         "zigbee": {
-          "n": 2,
+          "n": 13,
           "recall_iou30": 0.0,
           "covered": 0.0
         }

@@ -24,6 +24,7 @@ scripts/
   validate_pfa.py            does each detector hold its design false-alarm rate on pure noise?
   tune_postprocessing.py     choose averaging window / box linking on a validation set
   run_detection_baseline.py  final evaluation: tables, Pd curves, example figure
+  diagnose_misses.py         why a signal is missed (too weak / merged with a neighbour / bad box), paired energy vs CFAR
 tests/                       14 unit tests (pytest)
 results/                     the numbers and figures quoted below
 ```
@@ -68,12 +69,13 @@ pytest
 python scripts/validate_pfa.py
 python scripts/tune_postprocessing.py --n-scenes 24 --seed 7 --impairment-level 1     # validation scenes
 for L in 0 1 2; do
-  python scripts/run_detection_baseline.py --source torchsig --n-scenes 60 --seed 1000 --impairment-level $L
+  python scripts/run_detection_baseline.py --source torchsig --n-scenes 300 --seed 1000 --impairment-level $L
 done
+python scripts/diagnose_misses.py --n-scenes 300 --seed 1000     # why signals are missed, paired energy vs CFAR
 ```
 
 Tuning uses seed 7, the final evaluation uses different scenes (seed 1000). Scenes are cached in
-`data_cache/` (git-ignored, about 2 MB per scene).
+`data_cache/` (git-ignored, about 2 MB per scene, so about 2 GB for the three levels).
 
 ## Results
 
@@ -95,50 +97,72 @@ the noise power is scaled by 1000 (unit test).
 
 ### Detection on TorchSig wideband scenes
 
-60 scenes per level, 140 to 156 signals, SNR 0 to 20 dB (TorchSig's definition), 1 to 4 signals per
+300 scenes per level (750 to 760 signals each), SNR 0 to 20 dB (TorchSig's definition), 1 to 4 signals per
 scene, 262 144 samples at 10 MS/s, spectrogram 512 × 1023, design Pfa 1e-3, validation-chosen
 averaging 3 × 9 cells and linking (4, 16) with at least 40 cells. Impairment level 0 is perfect,
-1 is a cabled transmitter, 2 adds fading (wireless).
+1 is a cabled transmitter, 2 adds fading (wireless). With 750 signals a recall has a 95 % interval of
+about ±3 points, so differences smaller than that are noise.
 
 * **covered**: at least 30 % of the signal's cells are flagged (the detector's sensitivity).
 * **recall@0.3 / 0.5**: a predicted box matches the signal's box with that IoU.
 * **FA/scene**: predicted boxes lying mostly outside every signal. **frag/scene**: extra pieces of real signals.
 
-Impairment level 1 (cabled):
+Impairment level 1 (cabled), 750 signals:
 
 | detector | covered | recall@0.3 | recall@0.5 | FA/scene | frag/scene | cell Pfa | ms/scene |
 |---|---|---|---|---|---|---|---|
-| energy, median floor | 0.83 | 0.78 | 0.73 | 0.07 | 0.38 | 1.3e-4 | 26 |
-| energy, 25 % quantile floor | 0.83 | 0.78 | 0.73 | 0.07 | 0.32 | 1.6e-4 | 24 |
-| energy, median + 6 dB (plan's rule) | 0.62 | 0.78 | 0.74 | 0.07 | 0.17 | 1.4e-4 | 22 |
-| energy, per-bin floor | 0.50 | 0.64 | 0.57 | 0.10 | 1.58 | 8.1e-4 | 26 |
-| CA-CFAR, frequency only, guard 24 | 0.49 | 0.78 | 0.65 | 0.17 | 0.60 | 7.4e-4 | 26 |
-| CA-CFAR, frequency only, guard 8 | 0.14 | 0.63 | 0.51 | 0.23 | 1.57 | 9.3e-4 | 29 |
-| CA-CFAR, 2-D | 0.00 | 0.17 | 0.11 | 0.03 | 0.48 | 9.6e-4 | 23 |
+| energy, median floor | 0.83 | 0.75 | 0.68 | 0.15 | 0.33 | 2.3e-4 | 23 |
+| energy, 25 % quantile floor | 0.84 | 0.75 | 0.68 | 0.15 | 0.34 | 2.6e-4 | 22 |
+| energy, median + 6 dB (plan's rule) | 0.59 | 0.74 | 0.68 | 0.13 | 0.22 | 1.9e-4 | 20 |
+| energy, per-bin floor | 0.44 | 0.61 | 0.54 | 0.19 | 1.44 | 8.7e-4 | 24 |
+| CA-CFAR, frequency only, guard 24 | 0.45 | 0.77 | 0.65 | 0.20 | 0.60 | 8.4e-4 | 24 |
+| CA-CFAR, frequency only, guard 8 | 0.15 | 0.63 | 0.50 | 0.28 | 1.56 | 1.0e-3 | 24 |
+| CA-CFAR, 2-D | 0.00 | 0.16 | 0.11 | 0.08 | 0.45 | 9.8e-4 | 22 |
 
-Median energy detector at the other levels: perfect: covered 0.85, recall@0.3 0.76, FA/scene 0.18;
-wireless: covered 0.79, recall@0.3 0.73, FA/scene 0.23. Full tables and curves are in
-`results/torchsig_imp{0,1,2}/` (`summary.json`, `per_signal.csv`, `pd_curves.png`, `example_scene.png`).
+The other two levels give the same picture. Median energy detector / wide-guard CFAR, recall@0.3:
+perfect 0.73 / 0.73, cabled 0.75 / 0.77, wireless 0.73 / 0.75. Covered: 0.84 / 0.44, 0.83 / 0.45, 0.80 / 0.41.
+Full tables and curves are in `results/torchsig_imp{0,1,2}/` (`summary.json`, `per_signal.csv`, `pd_curves.png`,
+`example_scene.png`); the miss analysis below is `scripts/diagnose_misses.py`.
+
+Why a signal is not matched at IoU 0.3 (percent of all signals, three levels):
+
+| detector | matched | not covered (too weak / narrow) | covered, overlaps a neighbour | covered, isolated, bad box |
+|---|---|---|---|---|
+| energy, median floor | 73 to 75 | 5 to 8 | 17 to 19 | 1.5 to 2 |
+| CA-CFAR, freq only, guard 24 | 73 to 77 | 15 to 19 | 5 to 6 | 2 to 3 |
 
 ### What the numbers say
 
-1. **The detectors work.** The energy detector flags 92 to 96 % of signals with SNR ≥ 5 dB and about
-   half of those below 5 dB, with under 0.3 false-alarm boxes per scene and a matched-box median IoU of 0.87 to 0.92.
-2. **Detection is not the bottleneck, box forming is.** About 17 % of signals are covered by the
-   mask but still miss at IoU 0.3, because the connected-component step merges them with a touching
-   or overlapping neighbour into one box (in the validation set all 21 misses had this cause).
-   Splitting touching signals is a segmentation problem (job 4.3) and is where the AI detector (4.4)
-   should help.
-3. **CA-CFAR self-masking is real.** The narrow-guard CFAR covers only 14 % of the signals, the wide-guard
-   CFAR 49 %, against 83 % for the energy detector, because TorchSig signals are often wide and long-lived.
-   CFAR boxes still match fairly often at IoU 0.3, probably because the detected edges link into one large box.
-   The 2-D CFAR with a small window finds almost nothing for the same reason.
-4. **A per-bin noise floor hurts** here (covered 0.50 against 0.83), as expected: a signal that stays on in a
+1. **The detectors work.** The energy detector flags 92 to 94 % of signals with SNR ≥ 5 dB and about
+   half (49 to 55 %) of those below 5 dB, with 0.15 to 0.26 false-alarm boxes per scene and a matched-box median IoU of 0.88 to 0.89.
+   On isolated signals (no other signal overlapping in time and nearby in frequency) recall@0.3 is 0.86 to 0.93 for both detectors.
+2. **Detection is not the bottleneck, box forming is.** About 39 % of the signals overlap in time with a neighbour
+   that is within 0.01 cycles/sample in frequency. For these, recall is only about 0.47 (energy), because connected
+   components merge the touching signals into one box (the example figure shows three signals in one red box).
+   This costs the energy detector about 18 points of recall and is the largest single loss. Splitting touching
+   signals is a segmentation problem (job 4.3) and is where the AI detector (4.4) should help.
+3. **Energy and CA-CFAR end up equal on box matching, for opposite reasons.** The paired comparison on the same signals
+   is not significant at any level (McNemar |z| ≤ 1.8). The energy detector loses signals by merging them (18 % of signals)
+   and the CFAR loses them by not seeing the middle of wide ones (15 to 19 % not covered, against 5 to 8 %).
+   CFAR's per-cell sensitivity is much lower (covered 0.41 to 0.45 against 0.80 to 0.84), but its boxes cover only the edges and the parts
+   of signals that stick out, which splits touching signals apart and gives it slightly better recall on overlapping ones
+   (0.53 to 0.55 against 0.47 to 0.48). Its boxes are looser: median IoU 0.77 to 0.80 against 0.88 to 0.89, and its false alarms are higher
+   (0.20 to 0.37 against 0.15 to 0.26 per scene) at the same design Pfa.
+4. **CA-CFAR self-masking is real.** The narrow-guard CFAR covers only 13 to 16 % of the signals, the wide-guard
+   CFAR 41 to 45 %, against 80 to 84 % for the energy detector, because TorchSig signals are often wide and long-lived. The 2-D CFAR with a
+   small window finds almost nothing for the same reason.
+5. **A per-bin noise floor hurts** here (covered 0.43 to 0.48 against 0.80 to 0.84), as expected: a signal that stays on in a
    bin for more than half the time biases that bin's median upward. A global floor works better, and a 25 %
-   quantile floor is on par with the median at level 1 and slightly better at the other levels.
-5. **CFAR's advantage needs a non-flat noise floor** (receiver roll-off, interference). The noise floor in these
+   quantile floor is on par with the median.
+6. **Narrow signals are the other weak spot.** Signals narrower than 0.02 cycles/sample (0.2 MHz here) are matched only 19 to 43 % of the time by
+   the energy detector and 6 to 14 % by the CFAR (the 3 × 9 averaging and the 2-bin minimum width remove them).
+7. **CFAR's advantage needs a non-flat noise floor** (receiver roll-off, interference). The noise floor in these
    TorchSig scenes looks flat, which favours the energy detector, so this comparison is not the last word.
    Real SDR captures are the fair test.
+8. **The measured cell false-alarm rate is lower than the design 1e-3 for the energy detector** at levels 1 and 2 (2e-4 to 4e-4),
+   measured on cells away from signals. The calibration on pure noise holds (see above), so I think part of the scene's noise estimate
+   is pulled up by signals or by the noise not being quite exponential in impaired scenes, but I have not diagnosed it. It makes the
+   detector slightly conservative, not wrong.
 
 ## Data notes
 
@@ -157,7 +181,7 @@ wireless: covered 0.79, recall@0.3 0.73, FA/scene 0.23. Full tables and curves a
 
 * One-bin-wide signals (tones, ADS-B) are missed: the 3 × 9 averaging and the 2-bin minimum width remove them.
   Handle narrowband separately (a 1-bin detector with a stricter Pfa) or by channelizing first.
-* Touching signals are merged (see above). Next: segmentation / YOLO-style detector (jobs 4.3, 4.4) and a
+* Touching signals are merged (see above, about 18 points of recall). Next: segmentation / YOLO-style detector (jobs 4.3, 4.4) and a
   comparison on the same scenes.
 * All numbers are on synthetic scenes. The same harness runs on real SDR captures once they carry box labels.
 * Next stage: modulation identification (cumulants + SVM, then CNN/ResNet) on the crops these boxes produce.
