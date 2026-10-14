@@ -1,0 +1,512 @@
+{
+  "validation": "torchsig_imp1_snr0-20_seed7",
+  "max_fa": 2.0,
+  "all": [
+    {
+      "detector": "energy_median_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.631578947368421,
+      "covered": 0.6973684210526315,
+      "fa_per_scene": 0.20833333333333334,
+      "frag_per_scene": 3.875
+    },
+    {
+      "detector": "energy_median_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "recall30": 0.631578947368421,
+      "covered": 0.6973684210526315,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 1.375
+    },
+    {
+      "detector": "energy_median_avg1x3",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.631578947368421,
+      "covered": 0.6973684210526315,
+      "fa_per_scene": 0.041666666666666664,
+      "frag_per_scene": 0.6666666666666666
+    },
+    {
+      "detector": "energy_median_avg1x3",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "recall30": 0.631578947368421,
+      "covered": 0.6973684210526315,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 0.4583333333333333
+    },
+    {
+      "detector": "energy_median_avg1x3",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "recall30": 0.5921052631578947,
+      "covered": 0.6973684210526315,
+      "fa_per_scene": 0.25,
+      "frag_per_scene": 0.16666666666666666
+    },
+    {
+      "detector": "energy_median_avg1x3",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "recall30": 0.5789473684210527,
+      "covered": 0.6973684210526315,
+      "fa_per_scene": 0.041666666666666664,
+      "frag_per_scene": 0.125
+    },
+    {
+      "detector": "energy_median_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.6447368421052632,
+      "covered": 0.8947368421052632,
+      "fa_per_scene": 0.375,
+      "frag_per_scene": 3.1666666666666665
+    },
+    {
+      "detector": "energy_median_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "recall30": 0.6447368421052632,
+      "covered": 0.8947368421052632,
+      "fa_per_scene": 0.16666666666666666,
+      "frag_per_scene": 1.0833333333333333
+    },
+    {
+      "detector": "energy_median_avg3x9",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.6447368421052632,
+      "covered": 0.8947368421052632,
+      "fa_per_scene": 0.2916666666666667,
+      "frag_per_scene": 0.875
+    },
+    {
+      "detector": "energy_median_avg3x9",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "recall30": 0.6447368421052632,
+      "covered": 0.8947368421052632,
+      "fa_per_scene": 0.08333333333333333,
+      "frag_per_scene": 0.6666666666666666
+    },
+    {
+      "detector": "energy_median_avg3x9",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "recall30": 0.5921052631578947,
+      "covered": 0.8947368421052632,
+      "fa_per_scene": 0.2916666666666667,
+      "frag_per_scene": 0.3333333333333333
+    },
+    {
+      "detector": "energy_median_avg3x9",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "recall30": 0.5921052631578947,
+      "covered": 0.8947368421052632,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 0.2916666666666667
+    },
+    {
+      "detector": "energy_q25_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.618421052631579,
+      "covered": 0.7763157894736842,
+      "fa_per_scene": 0.16666666666666666,
+      "frag_per_scene": 2.7083333333333335
+    },
+    {
+      "detector": "energy_q25_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "recall30": 0.618421052631579,
+      "covered": 0.7763157894736842,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 1.1666666666666667
+    },
+    {
+      "detector": "energy_q25_avg1x3",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.618421052631579,
+      "covered": 0.7763157894736842,
+      "fa_per_scene": 0.041666666666666664,
+      "frag_per_scene": 0.625
+    },
+    {
+      "detector": "energy_q25_avg1x3",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "recall30": 0.618421052631579,
+      "covered": 0.7763157894736842,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 0.4583333333333333
+    },
+    {
+      "detector": "energy_q25_avg1x3",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "recall30": 0.5657894736842105,
+      "covered": 0.7763157894736842,
+      "fa_per_scene": 0.5416666666666666,
+      "frag_per_scene": 0.16666666666666666
+    },
+    {
+      "detector": "energy_q25_avg1x3",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "recall30": 0.5657894736842105,
+      "covered": 0.7763157894736842,
+      "fa_per_scene": 0.125,
+      "frag_per_scene": 0.08333333333333333
+    },
+    {
+      "detector": "energy_q25_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.6578947368421053,
+      "covered": 0.9078947368421053,
+      "fa_per_scene": 0.375,
+      "frag_per_scene": 3.3333333333333335
+    },
+    {
+      "detector": "energy_q25_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "recall30": 0.6578947368421053,
+      "covered": 0.9078947368421053,
+      "fa_per_scene": 0.08333333333333333,
+      "frag_per_scene": 1.6666666666666667
+    },
+    {
+      "detector": "energy_q25_avg3x9",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.631578947368421,
+      "covered": 0.9078947368421053,
+      "fa_per_scene": 0.2916666666666667,
+      "frag_per_scene": 0.875
+    },
+    {
+      "detector": "energy_q25_avg3x9",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "recall30": 0.631578947368421,
+      "covered": 0.9078947368421053,
+      "fa_per_scene": 0.041666666666666664,
+      "frag_per_scene": 0.5833333333333334
+    },
+    {
+      "detector": "energy_q25_avg3x9",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "recall30": 0.5921052631578947,
+      "covered": 0.9078947368421053,
+      "fa_per_scene": 0.4166666666666667,
+      "frag_per_scene": 0.20833333333333334
+    },
+    {
+      "detector": "energy_q25_avg3x9",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "recall30": 0.5921052631578947,
+      "covered": 0.9078947368421053,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 0.125
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.5526315789473685,
+      "covered": 0.17105263157894737,
+      "fa_per_scene": 0.08333333333333333,
+      "frag_per_scene": 6.75
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "recall30": 0.5526315789473685,
+      "covered": 0.17105263157894737,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 2.6666666666666665
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg1x3",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.6842105263157895,
+      "covered": 0.17105263157894737,
+      "fa_per_scene": 0.375,
+      "frag_per_scene": 1.0416666666666667
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg1x3",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "recall30": 0.6842105263157895,
+      "covered": 0.17105263157894737,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 0.5833333333333334
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg1x3",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "recall30": 0.5263157894736842,
+      "covered": 0.17105263157894737,
+      "fa_per_scene": 4.666666666666667,
+      "frag_per_scene": 0.4583333333333333
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg1x3",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "recall30": 0.5263157894736842,
+      "covered": 0.17105263157894737,
+      "fa_per_scene": 0.9166666666666666,
+      "frag_per_scene": 0.3333333333333333
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.631578947368421,
+      "covered": 0.34210526315789475,
+      "fa_per_scene": 1.2916666666666667,
+      "frag_per_scene": 7.833333333333333
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "recall30": 0.631578947368421,
+      "covered": 0.34210526315789475,
+      "fa_per_scene": 0.0,
+      "frag_per_scene": 2.5833333333333335
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg3x9",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.6710526315789473,
+      "covered": 0.34210526315789475,
+      "fa_per_scene": 1.625,
+      "frag_per_scene": 1.125
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg3x9",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "recall30": 0.6710526315789473,
+      "covered": 0.34210526315789475,
+      "fa_per_scene": 0.041666666666666664,
+      "frag_per_scene": 0.7916666666666666
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg3x9",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "recall30": 0.5921052631578947,
+      "covered": 0.34210526315789475,
+      "fa_per_scene": 4.875,
+      "frag_per_scene": 0.75
+    },
+    {
+      "detector": "cfar_freq_g24_t48_avg3x9",
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "recall30": 0.5921052631578947,
+      "covered": 0.34210526315789475,
+      "fa_per_scene": 0.25,
+      "frag_per_scene": 0.4166666666666667
+    }
+  ],
+  "best": {
+    "energy_median_avg1x3": {
+      "detector": "energy_median_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.631578947368421,
+      "covered": 0.6973684210526315,
+      "fa_per_scene": 0.20833333333333334,
+      "frag_per_scene": 3.875
+    },
+    "energy_median_avg3x9": {
+      "detector": "energy_median_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.6447368421052632,
+      "covered": 0.8947368421052632,
+      "fa_per_scene": 0.375,
+      "frag_per_scene": 3.1666666666666665
+    },
+    "energy_q25_avg1x3": {
+      "detector": "energy_q25_avg1x3",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.618421052631579,
+      "covered": 0.7763157894736842,
+      "fa_per_scene": 0.16666666666666666,
+      "frag_per_scene": 2.7083333333333335
+    },
+    "energy_q25_avg3x9": {
+      "detector": "energy_q25_avg3x9",
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "recall30": 0.6578947368421053,
+      "covered": 0.9078947368421053,
+      "fa_per_scene": 0.375,
+      "frag_per_scene": 3.3333333333333335
+    },
+    "cfar_freq_g24_t48_avg1x3": {
+      "detector": "cfar_freq_g24_t48_avg1x3",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.6842105263157895,
+      "covered": 0.17105263157894737,
+      "fa_per_scene": 0.375,
+      "frag_per_scene": 1.0416666666666667
+    },
+    "cfar_freq_g24_t48_avg3x9": {
+      "detector": "cfar_freq_g24_t48_avg3x9",
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "recall30": 0.6710526315789473,
+      "covered": 0.34210526315789475,
+      "fa_per_scene": 1.625,
+      "frag_per_scene": 1.125
+    }
+  }
+}

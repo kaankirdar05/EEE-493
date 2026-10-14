@@ -1,0 +1,6 @@
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+pytest>=8.0
+# Only needed to generate WidebandSig53-style scenes (scripts/run_detection_baseline.py --source torchsig):
+torchsig>=2.1

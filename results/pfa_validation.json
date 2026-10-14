@@ -1,0 +1,112 @@
+{
+  "geometry": {
+    "n_samples": 262144,
+    "n_fft": 512,
+    "hop": 256,
+    "pfa": [
+      0.01,
+      0.001,
+      0.0001
+    ],
+    "n_scenes": 24,
+    "out": "results/pfa_validation.json"
+  },
+  "rows": [
+    {
+      "detector": "energy_global_avg1x3",
+      "target_pfa": 0.01,
+      "threshold_theory": 2.801982304961821,
+      "threshold_calibrated": 2.8619460838177075,
+      "measured_pfa_theory": 0.011385751415363311,
+      "measured_pfa_calibrated": 0.009948034401474421
+    },
+    {
+      "detector": "energy_global_avg1x3",
+      "target_pfa": 0.001,
+      "threshold_theory": 3.7429574141375537,
+      "threshold_calibrated": 3.8726656881248855,
+      "measured_pfa_theory": 0.0013599961306614533,
+      "measured_pfa_calibrated": 0.0009736191298061258
+    },
+    {
+      "detector": "energy_global_avg1x3",
+      "target_pfa": 0.0001,
+      "threshold_theory": 4.642723539335653,
+      "threshold_calibrated": 4.845281257464553,
+      "measured_pfa_theory": 0.00016339682103290974,
+      "measured_pfa_calibrated": 0.00010540447315900945
+    },
+    {
+      "detector": "energy_per_bin_avg1x3",
+      "target_pfa": 0.01,
+      "threshold_theory": 2.801982304961821,
+      "threshold_calibrated": 2.87126113266455,
+      "measured_pfa_theory": 0.011560285312805474,
+      "measured_pfa_calibrated": 0.00989799710817856
+    },
+    {
+      "detector": "energy_per_bin_avg1x3",
+      "target_pfa": 0.001,
+      "threshold_theory": 3.7429574141375537,
+      "threshold_calibrated": 3.890710492526059,
+      "measured_pfa_theory": 0.0014186248829015965,
+      "measured_pfa_calibrated": 0.0009818128360215054
+    },
+    {
+      "detector": "energy_per_bin_avg1x3",
+      "target_pfa": 0.0001,
+      "threshold_theory": 4.642723539335653,
+      "threshold_calibrated": 4.892198391249562,
+      "measured_pfa_theory": 0.00017477254907950472,
+      "measured_pfa_calibrated": 0.00010285885569403715
+    },
+    {
+      "detector": "cfar_freq_only_t24_g8",
+      "target_pfa": 0.01,
+      "threshold_theory": 4.83332022010606,
+      "threshold_calibrated": 5.0424620027330125,
+      "measured_pfa_theory": 0.011844519412878788,
+      "measured_pfa_calibrated": 0.009872700034620397
+    },
+    {
+      "detector": "cfar_freq_only_t24_g8",
+      "target_pfa": 0.001,
+      "threshold_theory": 7.429535265093996,
+      "threshold_calibrated": 7.933243658600907,
+      "measured_pfa_theory": 0.0014452743157380254,
+      "measured_pfa_calibrated": 0.0009659027268654285
+    },
+    {
+      "detector": "cfar_freq_only_t24_g8",
+      "target_pfa": 0.0001,
+      "threshold_theory": 10.153327614172241,
+      "threshold_calibrated": 11.120199785951872,
+      "measured_pfa_theory": 0.00018511412003095472,
+      "measured_pfa_calibrated": 9.036942000651678e-05
+    },
+    {
+      "detector": "cfar_2d_t8x4_g2x1",
+      "target_pfa": 0.01,
+      "threshold_theory": 4.654612584465683,
+      "threshold_calibrated": 4.70690873337269,
+      "measured_pfa_theory": 0.010498365077183122,
+      "measured_pfa_calibrated": 0.009951057322214076
+    },
+    {
+      "detector": "cfar_2d_t8x4_g2x1",
+      "target_pfa": 0.001,
+      "threshold_theory": 7.019398440213003,
+      "threshold_calibrated": 7.1715211853404375,
+      "measured_pfa_theory": 0.0011142644947458456,
+      "measured_pfa_calibrated": 0.0009497539660720104
+    },
+    {
+      "detector": "cfar_2d_t8x4_g2x1",
+      "target_pfa": 0.0001,
+      "threshold_theory": 9.409528031484466,
+      "threshold_calibrated": 9.667244797220459,
+      "measured_pfa_theory": 0.00011916671757901596,
+      "measured_pfa_calibrated": 9.3312790200391e-05
+    }
+  ]
+}

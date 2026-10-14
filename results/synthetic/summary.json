@@ -1,0 +1,189 @@
+{
+  "args": {
+    "source": "synthetic",
+    "n_scenes": "40",
+    "seed": "0",
+    "pfa": "0.001",
+    "n_fft": "512",
+    "hop": "256",
+    "link": "[4, 16]",
+    "min_cells": "40",
+    "impairment_level": "0",
+    "snr_db": "[0.0, 20.0]",
+    "num_signals": "[1, 4]",
+    "n_samples": "262144",
+    "cache_dir": "data_cache",
+    "out": "None"
+  },
+  "design_cell_pfa": 0.001,
+  "post": {
+    "link": [
+      4,
+      16
+    ],
+    "min_cells": 40
+  },
+  "detectors": {
+    "energy_median": {
+      "n_signals": 160,
+      "recall_iou50": 0.9625,
+      "recall_iou30": 0.99375,
+      "covered": 0.9625,
+      "false_alarms_per_scene": 0.125,
+      "fragments_per_scene": 0.0,
+      "predicted_boxes_per_scene": 3.975,
+      "cell_false_alarm_rate_far_from_signals": 8.278790351971665e-05,
+      "median_iou": 0.8845266398039708,
+      "median_fc_err_over_bw": 0.005822287182521297,
+      "median_bw_err_rel": 0.11150263010447597,
+      "median_t_start_err_rel": 0.006965016319071177,
+      "median_t_stop_err_rel": 0.0068463539350621825,
+      "runtime_ms_per_scene": 24.89226050000184,
+      "recall_iou30_by_class": {
+        "noise-like": {
+          "n": 160,
+          "recall_iou30": 0.99375,
+          "covered": 0.9625
+        }
+      }
+    },
+    "energy_q25": {
+      "n_signals": 160,
+      "recall_iou50": 0.95,
+      "recall_iou30": 0.99375,
+      "covered": 0.96875,
+      "false_alarms_per_scene": 0.175,
+      "fragments_per_scene": 0.0,
+      "predicted_boxes_per_scene": 3.975,
+      "cell_false_alarm_rate_far_from_signals": 0.00012130656137884633,
+      "median_iou": 0.8729395695241731,
+      "median_fc_err_over_bw": 0.007576451709214045,
+      "median_bw_err_rel": 0.1227215994245181,
+      "median_t_start_err_rel": 0.006913586840713453,
+      "median_t_stop_err_rel": 0.006962800670274244,
+      "runtime_ms_per_scene": 24.601055624981427,
+      "recall_iou30_by_class": {
+        "noise-like": {
+          "n": 160,
+          "recall_iou30": 0.99375,
+          "covered": 0.96875
+        }
+      }
+    },
+    "energy_per_bin": {
+      "n_signals": 160,
+      "recall_iou50": 0.725,
+      "recall_iou30": 0.86875,
+      "covered": 0.69375,
+      "false_alarms_per_scene": 0.775,
+      "fragments_per_scene": 0.65,
+      "predicted_boxes_per_scene": 4.325,
+      "cell_false_alarm_rate_far_from_signals": 0.0007681215651192217,
+      "median_iou": 0.7342470473630216,
+      "median_fc_err_over_bw": 0.04813028094918235,
+      "median_bw_err_rel": 0.31490177017071397,
+      "median_t_start_err_rel": 0.0071094169922814344,
+      "median_t_stop_err_rel": 0.007507604260199019,
+      "runtime_ms_per_scene": 24.65253627497077,
+      "recall_iou30_by_class": {
+        "noise-like": {
+          "n": 160,
+          "recall_iou30": 0.86875,
+          "covered": 0.69375
+        }
+      }
+    },
+    "energy_median+6dB": {
+      "n_signals": 160,
+      "recall_iou50": 0.94375,
+      "recall_iou30": 0.99375,
+      "covered": 0.76875,
+      "false_alarms_per_scene": 0.2,
+      "fragments_per_scene": 0.0,
+      "predicted_boxes_per_scene": 3.975,
+      "cell_false_alarm_rate_far_from_signals": 0.0001310391221985949,
+      "median_iou": 0.877013693245088,
+      "median_fc_err_over_bw": 0.015301703464314923,
+      "median_bw_err_rel": 0.11198639440229592,
+      "median_t_start_err_rel": 0.002489675416978577,
+      "median_t_stop_err_rel": 0.0024476582753220778,
+      "runtime_ms_per_scene": 21.17485982502103,
+      "recall_iou30_by_class": {
+        "noise-like": {
+          "n": 160,
+          "recall_iou30": 0.99375,
+          "covered": 0.76875
+        }
+      }
+    },
+    "cfar_freq_g8_t24": {
+      "n_signals": 160,
+      "recall_iou50": 0.91875,
+      "recall_iou30": 0.975,
+      "covered": 0.41875,
+      "false_alarms_per_scene": 0.25,
+      "fragments_per_scene": 0.125,
+      "predicted_boxes_per_scene": 4.05,
+      "cell_false_alarm_rate_far_from_signals": 0.0007980088927365271,
+      "median_iou": 0.8312510224797948,
+      "median_fc_err_over_bw": 0.02197711767365932,
+      "median_bw_err_rel": 0.11086339938190087,
+      "median_t_start_err_rel": 0.014187086482387092,
+      "median_t_stop_err_rel": 0.0134548497607155,
+      "runtime_ms_per_scene": 27.63476752500651,
+      "recall_iou30_by_class": {
+        "noise-like": {
+          "n": 160,
+          "recall_iou30": 0.975,
+          "covered": 0.41875
+        }
+      }
+    },
+    "cfar_freq_g24_t48": {
+      "n_signals": 160,
+      "recall_iou50": 0.7875,
+      "recall_iou30": 0.9,
+      "covered": 0.83125,
+      "false_alarms_per_scene": 0.475,
+      "fragments_per_scene": 0.5,
+      "predicted_boxes_per_scene": 4.125,
+      "cell_false_alarm_rate_far_from_signals": 0.0006004192218380047,
+      "median_iou": 0.8443317960612529,
+      "median_fc_err_over_bw": 0.012973098277613847,
+      "median_bw_err_rel": 0.10628074664808324,
+      "median_t_start_err_rel": 0.010839224340430567,
+      "median_t_stop_err_rel": 0.01006534086664564,
+      "runtime_ms_per_scene": 25.054632699993817,
+      "recall_iou30_by_class": {
+        "noise-like": {
+          "n": 160,
+          "recall_iou30": 0.9,
+          "covered": 0.83125
+        }
+      }
+    },
+    "cfar_2d_g2x1_t8x4": {
+      "n_signals": 160,
+      "recall_iou50": 0.16875,
+      "recall_iou30": 0.25625,
+      "covered": 0.0,
+      "false_alarms_per_scene": 0.15,
+      "fragments_per_scene": 0.425,
+      "predicted_boxes_per_scene": 1.25,
+      "cell_false_alarm_rate_far_from_signals": 0.000923938210593311,
+      "median_iou": 0.8545556932269057,
+      "median_fc_err_over_bw": 0.015977361323475096,
+      "median_bw_err_rel": 0.0471605032208108,
+      "median_t_start_err_rel": 0.01501126442413993,
+      "median_t_stop_err_rel": 0.010984044035243055,
+      "runtime_ms_per_scene": 22.268510075008408,
+      "recall_iou30_by_class": {
+        "noise-like": {
+          "n": 160,
+          "recall_iou30": 0.25625,
+          "covered": 0.0
+        }
+      }
+    }
+  }
+}
