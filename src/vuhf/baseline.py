@@ -80,6 +80,14 @@ def score_mask(boxes_gt: list[Box], mask: np.ndarray, geom: SpecGeometry, post: 
                   raw mask (measures the detector's sensitivity only).
     """
     preds = mask_to_boxes(mask, geom, link=post.link, min_cells=post.min_cells)
+    return score_boxes(boxes_gt, preds, mask, geom, iou_thrs, cover_thr)
+
+
+def score_boxes(boxes_gt: list[Box], preds: list[Box], mask: np.ndarray, geom: SpecGeometry,
+                iou_thrs=(0.5, 0.3), cover_thr: float = 0.3) -> dict:
+    """Same scoring as ``score_mask`` for detectors that output boxes directly (YOLO).
+    ``mask`` is then the predicted boxes rasterised on the spectrogram grid (``boxes_to_mask``),
+    so ``covered`` and ``cell_fa`` describe the boxes, not a per-cell threshold."""
     rows = [dict(label=g.label, snr_db=g.snr_db, bandwidth=g.bandwidth, duration=g.duration) for g in boxes_gt]
     for j, g in enumerate(boxes_gt):
         k0, k1, j0, j1 = geom.box_to_cells(g)

@@ -31,7 +31,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-from vuhf.baseline import DEFAULT_SPECS, Post, calibrate, detect_mask, score_mask  # noqa: E402
+from vuhf.baseline import DEFAULT_SPECS, Post, calibrate, detect_mask, score_boxes, score_mask  # noqa: E402
+from vuhf.detectors.boxes import boxes_to_mask  # noqa: E402
 from vuhf.data.sources import cached, synthetic_source, torchsig_source  # noqa: E402
 from vuhf.geometry import SpecGeometry  # noqa: E402
 from vuhf.spectrogram import power_spectrogram  # noqa: E402
@@ -105,6 +106,9 @@ def main():
     ap.add_argument("--num-signals", type=int, nargs=2, default=[1, 4])
     ap.add_argument("--n-samples", type=int, default=262144)
     ap.add_argument("--cache-dir", type=Path, default=Path("data_cache"))
+    ap.add_argument("--yolo-weights", type=Path, default=None, help="also evaluate this trained YOLO model (see train_yolo.py)")
+    ap.add_argument("--yolo-conf", type=float, default=0.25, help="YOLO confidence threshold (choose it with tune_yolo.py)")
+    ap.add_argument("--yolo-nms-iou", type=float, default=0.7)
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
@@ -124,10 +128,29 @@ def main():
     specs = DEFAULT_SPECS
     thresholds = {s.name: calibrate(s, geom, args.pfa) for s in specs}
     names = [s.name for s in specs]
+    yolo = None
+    if args.yolo_weights is not None:
+        from vuhf.detectors.yolo import YoloDetector
+
+        yolo = YoloDetector(args.yolo_weights, geom, min_conf=args.yolo_conf, nms_iou=args.yolo_nms_iou)
+        names.append("yolo")
     data = {n: defaultdict(list) for n in names}
     per_scene = {n: dict(fa=[], frag=[], cell_fa=[], cell_pd=[], t=[], n_pred=[]) for n in names}
     errs = {n: defaultdict(list) for n in names}
     csv_rows, example, t_all = [], None, time.time()
+
+    def record(name, sc, i):
+        ps = per_scene[name]
+        ps["fa"].append(sc["n_fa"][0.5]); ps["frag"].append(sc["n_frag"][0.5])
+        ps["cell_fa"].append(sc["cell_fa"]); ps["cell_pd"].append(sc["cell_pd"]); ps["n_pred"].append(sc["n_pred"])
+        for r in sc["rows"]:
+            for k in ("snr_db", "bandwidth", "label", "det@0.5", "det@0.3", "covered"):
+                data[name][k].append(r[k])
+            if r["det@0.5"]:
+                for k in ("iou", "fc_err", "bw_err", "t_start_err", "t_stop_err"):
+                    errs[name][k].append(r[k])
+            csv_rows.append(dict(detector=name, scene=i, label=r["label"], snr_db=r["snr_db"], bandwidth=r["bandwidth"],
+                                 duration=r["duration"], det50=int(r["det@0.5"]), det30=int(r["det@0.3"]), covered=int(r["covered"])))
 
     for i, scene in enumerate(cached(factory, key, args.n_scenes, args.cache_dir)):
         P = power_spectrogram(scene.iq, geom)
@@ -138,17 +161,14 @@ def main():
             sc = score_mask(scene.boxes, mask, geom, post, iou_thrs=(0.5, 0.3))
             per_scene[s.name]["t"].append(time.perf_counter() - t0)
             preds_by[s.name] = sc["preds"]
-            ps = per_scene[s.name]
-            ps["fa"].append(sc["n_fa"][0.5]); ps["frag"].append(sc["n_frag"][0.5])
-            ps["cell_fa"].append(sc["cell_fa"]); ps["cell_pd"].append(sc["cell_pd"]); ps["n_pred"].append(sc["n_pred"])
-            for r in sc["rows"]:
-                for k in ("snr_db", "bandwidth", "label", "det@0.5", "det@0.3", "covered"):
-                    data[s.name][k].append(r[k])
-                if r["det@0.5"]:
-                    for k in ("iou", "fc_err", "bw_err", "t_start_err", "t_stop_err"):
-                        errs[s.name][k].append(r[k])
-                csv_rows.append(dict(detector=s.name, scene=i, label=r["label"], snr_db=r["snr_db"], bandwidth=r["bandwidth"],
-                                     duration=r["duration"], det50=int(r["det@0.5"]), det30=int(r["det@0.3"]), covered=int(r["covered"])))
+            record(s.name, sc, i)
+        if yolo is not None:
+            t0 = time.perf_counter()
+            preds = yolo.predict(P, args.yolo_conf)
+            sc = score_boxes(scene.boxes, preds, boxes_to_mask(preds, geom), geom, iou_thrs=(0.5, 0.3))
+            per_scene["yolo"]["t"].append(time.perf_counter() - t0)
+            preds_by["yolo"] = preds
+            record("yolo", sc, i)
         if example is None and len(scene.boxes) >= 3:
             example = (scene, P, preds_by)
         if (i + 1) % 10 == 0:
@@ -181,7 +201,7 @@ def main():
                 f"{tag}: {args.n_scenes} scenes, design Pfa {args.pfa:g}, link {post.link}, min cells {post.min_cells}")
     if example is not None:
         sc, P, pb = example
-        plot_example(out / "example_scene.png", sc, P, pb, ["energy_median", "energy_q25", "cfar_freq_g24_t48"])
+        plot_example(out / "example_scene.png", sc, P, pb, ["energy_median", "cfar_freq_g24_t48"] + (["yolo"] if yolo else ["energy_q25"]))
 
     print(f"\n{tag}: {args.n_scenes} scenes, {summary[names[0]]['n_signals']} signals, spectrogram {geom.shape}, design cell Pfa {args.pfa:g}, "
           f"link {post.link}, min cells {post.min_cells}")
