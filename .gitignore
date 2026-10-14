@@ -7,3 +7,4 @@ venv/
 data_cache/
 *.npy
 *.npz
+*.pt
