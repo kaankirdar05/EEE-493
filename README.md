@@ -198,6 +198,25 @@ recall@0.3 for signals that overlap a neighbour (39 % of all signals) against is
 | CA-CFAR | 0.86 to 0.91 | 0.53 to 0.55 |
 | YOLO | 0.93 to 0.96 | 0.91 to 0.97 |
 
+#### Pictures of the same test scenes
+
+`python scripts/plot_comparison.py --yolo-weights results/yolo/best.pt --yolo-conf 0.05` draws the detections of all three methods
+on the same scenes. White dashed = true signal, solid colour = a detection that matches a true signal (IoU >= 0.3), dotted colour =
+a detection that matches nothing (false alarm or fragment). Blue = energy, orange = CA-CFAR, green = YOLO.
+
+* `results/comparison_scenes_imp1.png`: six scenes drawn at random from the cabled test set. Most contain well-separated signals, and
+  all three detectors do about equally well (scene 92 shows a YOLO miss: one large false-alarm box).
+* `results/comparison_scenes_overlap_imp1.png`: six scenes drawn at random among the 120 (of 300) that contain overlapping signals.
+  The energy detector finds 8 of 21 signals in these six scenes, CA-CFAR 11 of 21, YOLO 19 of 21 (counts read off the figure), but
+  YOLO also draws many extra boxes in the crowded scenes (3 to 6 per scene, duplicates and pieces of real signals): it buys its recall
+  with extra boxes at confidence 0.05.
+* `results/comparison_summary.png`: all 900 scenes pooled. Recall against SNR, against bandwidth, for isolated against overlapping
+  signals, and recall against false alarms per scene (the YOLO curve is the confidence threshold swept; the dot is the threshold of 0.05
+  chosen on validation scenes).
+
+The summary figure counts "false alarms" without fragments (as in the tables above); the scene pictures count every unmatched box as
+"extra", which is why YOLO's crowded scenes look worse there than in the false-alarm numbers.
+
 ### What the numbers say
 
 1. **The detectors work.** The energy detector flags 92 to 94 % of signals with SNR ≥ 5 dB and about
