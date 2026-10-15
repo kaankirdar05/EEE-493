@@ -1,0 +1,33 @@
+
+== impairment level 0: 760 signals
+  energy_median        {'matched': '73.0%', 'overlaps a neighbour': '18.2%', 'not covered': '6.8%', 'isolated, bad box': '2.0%'}
+  cfar_freq_g24_t48    {'not covered': '18.8%', 'matched': '73.0%', 'overlaps a neighbour': '5.8%', 'isolated, bad box': '2.4%'}
+  yolo                 {'matched': '93.0%', 'not covered': '2.2%', 'overlaps a neighbour': '3.3%', 'isolated, bad box': '1.4%'}
+  39% of signals overlap a neighbour. recall@0.3 isolated / overlapping:
+    energy_median       0.90 / 0.47
+    cfar_freq_g24_t48   0.86 / 0.53
+    yolo                0.94 / 0.91
+  paired IoU>=0.3, energy vs cfar_freq_g24_t48: energy only 34, cfar_freq_g24_t48 only 34, McNemar z = 0.00 (|z| < 1.96: no significant difference)
+  paired IoU>=0.3, energy vs yolo: energy only 2, yolo only 154, McNemar z = -12.17 (|z| < 1.96: no significant difference)
+
+== impairment level 1: 750 signals
+  energy_median        {'overlaps a neighbour': '18.7%', 'not covered': '5.3%', 'matched': '74.5%', 'isolated, bad box': '1.5%'}
+  cfar_freq_g24_t48    {'matched': '76.8%', 'not covered': '14.5%', 'isolated, bad box': '2.8%', 'overlaps a neighbour': '5.9%'}
+  yolo                 {'matched': '96.1%', 'not covered': '1.5%', 'isolated, bad box': '0.9%', 'overlaps a neighbour': '1.5%'}
+  39% of signals overlap a neighbour. recall@0.3 isolated / overlapping:
+    energy_median       0.93 / 0.47
+    cfar_freq_g24_t48   0.91 / 0.55
+    yolo                0.96 / 0.96
+  paired IoU>=0.3, energy vs cfar_freq_g24_t48: energy only 38, cfar_freq_g24_t48 only 55, McNemar z = -1.76 (|z| < 1.96: no significant difference)
+  paired IoU>=0.3, energy vs yolo: energy only 3, yolo only 165, McNemar z = -12.50 (|z| < 1.96: no significant difference)
+
+== impairment level 2: 752 signals
+  energy_median        {'overlaps a neighbour': '17.4%', 'matched': '73.0%', 'not covered': '7.6%', 'isolated, bad box': '2.0%'}
+  cfar_freq_g24_t48    {'matched': '74.7%', 'not covered': '18.5%', 'overlaps a neighbour': '4.8%', 'isolated, bad box': '2.0%'}
+  yolo                 {'matched': '94.5%', 'overlaps a neighbour': '1.3%', 'not covered': '2.9%', 'isolated, bad box': '1.2%'}
+  38% of signals overlap a neighbour. recall@0.3 isolated / overlapping:
+    energy_median       0.88 / 0.48
+    cfar_freq_g24_t48   0.87 / 0.55
+    yolo                0.93 / 0.97
+  paired IoU>=0.3, energy vs cfar_freq_g24_t48: energy only 37, cfar_freq_g24_t48 only 50, McNemar z = -1.39 (|z| < 1.96: no significant difference)
+  paired IoU>=0.3, energy vs yolo: energy only 2, yolo only 164, McNemar z = -12.57 (|z| < 1.96: no significant difference)

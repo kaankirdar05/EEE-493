@@ -13,6 +13,9 @@
     "num_signals": "[1, 4]",
     "n_samples": "262144",
     "cache_dir": "data_cache",
+    "yolo_weights": "data_cache/yolo_runs/signal/weights/best.pt",
+    "yolo_conf": "0.05",
+    "yolo_nms_iou": "0.7",
     "out": "None"
   },
   "design_cell_pfa": 0.001,
@@ -38,7 +41,7 @@
       "median_bw_err_rel": 0.08122036693465297,
       "median_t_start_err_rel": 0.006176719217300524,
       "median_t_stop_err_rel": 0.00606425186339412,
-      "runtime_ms_per_scene": 23.236029753337938,
+      "runtime_ms_per_scene": 31.51511376998921,
       "recall_iou30_by_class": {
         "1024qam": {
           "n": 6,
@@ -401,7 +404,7 @@
       "median_bw_err_rel": 0.07500000000000033,
       "median_t_start_err_rel": 0.006345151801302998,
       "median_t_stop_err_rel": 0.006356089774762147,
-      "runtime_ms_per_scene": 22.158707189996676,
+      "runtime_ms_per_scene": 26.581978103373938,
       "recall_iou30_by_class": {
         "1024qam": {
           "n": 6,
@@ -764,7 +767,7 @@
       "median_bw_err_rel": 0.1019838212634823,
       "median_t_start_err_rel": 0.006974621891780449,
       "median_t_stop_err_rel": 0.006359364021631967,
-      "runtime_ms_per_scene": 23.681015413332414,
+      "runtime_ms_per_scene": 27.72059239002677,
       "recall_iou30_by_class": {
         "1024qam": {
           "n": 6,
@@ -1127,7 +1130,7 @@
       "median_bw_err_rel": 0.09132610508757316,
       "median_t_start_err_rel": 0.002355315922872788,
       "median_t_stop_err_rel": 0.002244950510927165,
-      "runtime_ms_per_scene": 20.404527923332694,
+      "runtime_ms_per_scene": 23.560529463326628,
       "recall_iou30_by_class": {
         "1024qam": {
           "n": 6,
@@ -1490,7 +1493,7 @@
       "median_bw_err_rel": 0.13636363636363621,
       "median_t_start_err_rel": 0.020878064740404476,
       "median_t_stop_err_rel": 0.017399207946503927,
-      "runtime_ms_per_scene": 24.74069598332979,
+      "runtime_ms_per_scene": 28.823782133343535,
       "recall_iou30_by_class": {
         "1024qam": {
           "n": 6,
@@ -1853,7 +1856,7 @@
       "median_bw_err_rel": 0.15378220112657595,
       "median_t_start_err_rel": 0.020124170413187755,
       "median_t_stop_err_rel": 0.016217842425260094,
-      "runtime_ms_per_scene": 23.954542416666413,
+      "runtime_ms_per_scene": 27.614311203330242,
       "recall_iou30_by_class": {
         "1024qam": {
           "n": 6,
@@ -2216,7 +2219,7 @@
       "median_bw_err_rel": 0.21052631578947367,
       "median_t_start_err_rel": 0.030474021872818537,
       "median_t_stop_err_rel": 0.03854385092630623,
-      "runtime_ms_per_scene": 22.11099764000115,
+      "runtime_ms_per_scene": 25.577410499981852,
       "recall_iou30_by_class": {
         "1024qam": {
           "n": 6,
@@ -2562,6 +2565,369 @@
           "n": 10,
           "recall_iou30": 0.0,
           "covered": 0.0
+        }
+      }
+    },
+    "yolo": {
+      "n_signals": 760,
+      "recall_iou50": 0.9223684210526316,
+      "recall_iou30": 0.9302631578947368,
+      "covered": 0.9776315789473684,
+      "false_alarms_per_scene": 0.24666666666666667,
+      "fragments_per_scene": 0.76,
+      "predicted_boxes_per_scene": 3.3433333333333333,
+      "cell_false_alarm_rate_far_from_signals": 0.054969831191775335,
+      "median_iou": 0.9543609619140625,
+      "median_fc_err_over_bw": 0.010254950262606144,
+      "median_bw_err_rel": 0.0304107666015625,
+      "median_t_start_err_rel": 0.0021193178836256266,
+      "median_t_stop_err_rel": 0.002128294901922345,
+      "runtime_ms_per_scene": 392.7906697299841,
+      "recall_iou30_by_class": {
+        "1024qam": {
+          "n": 6,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "128qam_cross": {
+          "n": 5,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "16apsk": {
+          "n": 6,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "16ask": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "16fsk": {
+          "n": 13,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "16gfsk": {
+          "n": 17,
+          "recall_iou30": 0.9411764705882353,
+          "covered": 1.0
+        },
+        "16gmsk": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "16msk": {
+          "n": 14,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "16psk": {
+          "n": 12,
+          "recall_iou30": 0.9166666666666666,
+          "covered": 1.0
+        },
+        "16qam": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "256qam": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "2fsk": {
+          "n": 13,
+          "recall_iou30": 0.8461538461538461,
+          "covered": 1.0
+        },
+        "2gfsk": {
+          "n": 18,
+          "recall_iou30": 0.9444444444444444,
+          "covered": 1.0
+        },
+        "2gmsk": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "2msk": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "32apsk": {
+          "n": 3,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "32ask": {
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 1.0
+        },
+        "32psk": {
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 1.0
+        },
+        "32qam": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "32qam_cross": {
+          "n": 15,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "4ask": {
+          "n": 14,
+          "recall_iou30": 0.9285714285714286,
+          "covered": 1.0
+        },
+        "4fsk": {
+          "n": 14,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "4gfsk": {
+          "n": 7,
+          "recall_iou30": 0.8571428571428571,
+          "covered": 1.0
+        },
+        "4gmsk": {
+          "n": 13,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "4msk": {
+          "n": 16,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "512qam_cross": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "64ask": {
+          "n": 13,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "64psk": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "64qam": {
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 1.0
+        },
+        "80211a": {
+          "n": 8,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "8ask": {
+          "n": 8,
+          "recall_iou30": 0.875,
+          "covered": 1.0
+        },
+        "8fsk": {
+          "n": 12,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "8gfsk": {
+          "n": 8,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "8gmsk": {
+          "n": 15,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "8msk": {
+          "n": 13,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "8psk": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "adsb-long": {
+          "n": 14,
+          "recall_iou30": 0.5,
+          "covered": 0.7857142857142857
+        },
+        "adsb-short": {
+          "n": 16,
+          "recall_iou30": 0.5625,
+          "covered": 0.8125
+        },
+        "am-dsb": {
+          "n": 10,
+          "recall_iou30": 0.8,
+          "covered": 0.8
+        },
+        "am-dsb-sc": {
+          "n": 14,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "am-lsb": {
+          "n": 10,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "am-usb": {
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 1.0
+        },
+        "bpsk": {
+          "n": 6,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "btle": {
+          "n": 12,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "chirpss": {
+          "n": 7,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "dmr": {
+          "n": 9,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "dvbs2": {
+          "n": 13,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "fm": {
+          "n": 12,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 0.9166666666666666
+        },
+        "gsm": {
+          "n": 13,
+          "recall_iou30": 0.9230769230769231,
+          "covered": 1.0
+        },
+        "lfm-data": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "lfm-radar": {
+          "n": 8,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "lora": {
+          "n": 6,
+          "recall_iou30": 0.8333333333333334,
+          "covered": 1.0
+        },
+        "ofdm-1024": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-1200": {
+          "n": 5,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-128": {
+          "n": 12,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-180": {
+          "n": 10,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-2048": {
+          "n": 10,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-256": {
+          "n": 14,
+          "recall_iou30": 0.9285714285714286,
+          "covered": 1.0
+        },
+        "ofdm-300": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-512": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-600": {
+          "n": 16,
+          "recall_iou30": 0.8125,
+          "covered": 1.0
+        },
+        "ofdm-64": {
+          "n": 8,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-72": {
+          "n": 10,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ofdm-900": {
+          "n": 11,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "ook": {
+          "n": 19,
+          "recall_iou30": 0.6842105263157895,
+          "covered": 0.8421052631578947
+        },
+        "p25": {
+          "n": 7,
+          "recall_iou30": 0.7142857142857143,
+          "covered": 1.0
+        },
+        "qpsk": {
+          "n": 10,
+          "recall_iou30": 1.0,
+          "covered": 1.0
+        },
+        "tone": {
+          "n": 17,
+          "recall_iou30": 0.47058823529411764,
+          "covered": 0.7058823529411765
+        },
+        "zigbee": {
+          "n": 10,
+          "recall_iou30": 1.0,
+          "covered": 1.0
         }
       }
     }
