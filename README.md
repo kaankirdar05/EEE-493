@@ -29,6 +29,7 @@ scripts/
   run_detection_baseline.py  final evaluation: tables, Pd curves, example figure
   diagnose_misses.py         why a signal is missed (too weak / merged with a neighbour / bad box), paired comparison of the detectors
   make_yolo_dataset.py       TorchSig scenes -> spectrogram images + box labels (train / validation)
+  export_sample.py           write the small committed sample, data_sample/
   train_yolo.py              train YOLO on them (CPU is enough, about 5 min per epoch)
   tune_yolo.py               choose the YOLO confidence threshold on validation scenes
 tests/                       19 unit tests (pytest)
@@ -260,6 +261,13 @@ The summary figure counts "false alarms" without fragments (as in the tables abo
    measured on cells away from signals. The calibration on pure noise holds (see above), so I think part of the scene's noise estimate
    is pulled up by signals or by the noise not being quite exponential in impaired scenes, but I have not diagnosed it. It makes the
    detector slightly conservative, not wrong.
+
+## Sample data
+
+`data_sample/` (31 MB) holds a small sample you can open without generating anything: the first 4 test scenes of each impairment level
+(12 scenes, 38 signals) as I/Q, as the spectrogram image YOLO sees with its YOLO-format labels, as annotated pictures with the true
+boxes and signal types, and as a `labels.csv` table. See `data_sample/README.md` for the format and units. The full sets (900 test scenes,
+3 000 training images, about 3 GB) are not in git; they are regenerated from the fixed seeds (Reproduce, above).
 
 ## Data notes
 

@@ -8,3 +8,6 @@ data_cache/
 *.npy
 *.npz
 *.pt
+
+# small sample of the test data that is committed on purpose
+!data_sample/iq/*.npz
