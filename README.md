@@ -30,6 +30,7 @@ scripts/
   diagnose_misses.py         why a signal is missed (too weak / merged with a neighbour / bad box), paired comparison of the detectors
   make_yolo_dataset.py       TorchSig scenes -> spectrogram images + box labels (train / validation)
   export_sample.py           write the small committed sample, data_sample/
+  export_sample_predictions.py  run the three detectors on the sample, data_sample/predictions/
   train_yolo.py              train YOLO on them (CPU is enough, about 5 min per epoch)
   tune_yolo.py               choose the YOLO confidence threshold on validation scenes
 tests/                       19 unit tests (pytest)
@@ -266,7 +267,8 @@ The summary figure counts "false alarms" without fragments (as in the tables abo
 
 `data_sample/` (31 MB) holds a small sample you can open without generating anything: the first 4 test scenes of each impairment level
 (12 scenes, 38 signals) as I/Q, as the spectrogram image YOLO sees with its YOLO-format labels, as annotated pictures with the true
-boxes and signal types, and as a `labels.csv` table. See `data_sample/README.md` for the format and units. The full sets (900 test scenes,
+boxes and signal types, and as a `labels.csv` table. It also holds the boxes the energy detector, CA-CFAR and YOLO predict on those scenes (`data_sample/predictions/`: YOLO-format
+files on the same pixel grid as the images, a CSV in ms and MHz, a per-scene summary and comparison figures). See `data_sample/README.md` for the format and units. The full sets (900 test scenes,
 3 000 training images, about 3 GB) are not in git; they are regenerated from the fixed seeds (Reproduce, above).
 
 ## Data notes
