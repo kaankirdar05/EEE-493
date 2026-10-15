@@ -207,9 +207,9 @@ a detection that matches nothing (false alarm or fragment). Blue = energy, orang
 * `results/comparison_scenes_imp1.png`: six scenes drawn at random from the cabled test set. Most contain well-separated signals, and
   all three detectors do about equally well (scene 92 shows a YOLO miss: one large false-alarm box).
 * `results/comparison_scenes_overlap_imp1.png`: six scenes drawn at random among the 120 (of 300) that contain overlapping signals.
-  The energy detector finds 8 of 21 signals in these six scenes, CA-CFAR 11 of 21, YOLO 19 of 21 (counts read off the figure), but
-  YOLO also draws many extra boxes in the crowded scenes (3 to 6 per scene, duplicates and pieces of real signals): it buys its recall
-  with extra boxes at confidence 0.05.
+  The six scenes hold 23 signals: the energy detector finds 9, CA-CFAR 12, YOLO 22 (the "found x of y" labels in the figure), but
+  YOLO also draws many extra boxes in the crowded scenes (3 to 6 per scene in four of the six, duplicates and pieces of real signals): it buys
+  its recall with extra boxes at confidence 0.05.
 * `results/comparison_summary.png`: all 900 scenes pooled. Recall against SNR, against bandwidth, for isolated against overlapping
   signals, and recall against false alarms per scene (the YOLO curve is the confidence threshold swept; the dot is the threshold of 0.05
   chosen on validation scenes).
