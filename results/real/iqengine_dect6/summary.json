@@ -1,0 +1,64 @@
+{
+  "args": {
+    "inputs": "[WindowsPath('data_real/iqengine/dect6/dect6.sigmf-meta')]",
+    "fs": "None",
+    "fc": "None",
+    "format": "None",
+    "window": "262144",
+    "hop": "None",
+    "max_windows": "200",
+    "pfa": "0.001",
+    "yolo_weights": "C:\\Users\\kaank\\AppData\\Local\\Temp\\claude\\C--Users-kaank--claude-spares-spare-VRL6aG\\ab94c766-d52a-4083-a6c6-a032e2bede57\\scratchpad\\work\\EEE-493\\results\\yolo\\best.pt",
+    "yolo_conf": "0.05",
+    "no_yolo": "False",
+    "link": "[4, 16]",
+    "min_cells": "40",
+    "mask_dc": "0",
+    "noise_only": "False",
+    "annotations_csv": "None",
+    "ignore_annotations": "False",
+    "n_figures": "6",
+    "seed": "0",
+    "out": "results\\real\\iqengine_dect6"
+  },
+  "n_windows": 152,
+  "annotated": true,
+  "detectors": {
+    "energy_median": {
+      "boxes_per_window": 15.092105263157896,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.34786704219883474,
+      "false_alarms_per_window": 15.078947368421053,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 1992,
+      "recall_iou50": 0.001004016064257028,
+      "recall_iou30": 0.08283132530120482,
+      "median_iou": 0.5228282810310996,
+      "covered_ge30": 1.0
+    },
+    "cfar_freq_g24_t48": {
+      "boxes_per_window": 10.68421052631579,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.5157990649679092,
+      "false_alarms_per_window": 10.68421052631579,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 1992,
+      "recall_iou50": 0.0,
+      "recall_iou30": 0.0035140562248995983,
+      "median_iou": null,
+      "covered_ge30": 1.0
+    },
+    "yolo": {
+      "boxes_per_window": 1.7894736842105263,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.9096868975930249,
+      "false_alarms_per_window": 1.7894736842105263,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 1992,
+      "recall_iou50": 0.0,
+      "recall_iou30": 0.0,
+      "median_iou": null,
+      "covered_ge30": 0.9984939759036144
+    }
+  }
+}

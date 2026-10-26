@@ -1,0 +1,64 @@
+{
+  "args": {
+    "inputs": "[WindowsPath('data_real/iqengine/bluetooth/bluetooth.sigmf-meta')]",
+    "fs": "None",
+    "fc": "None",
+    "format": "None",
+    "window": "262144",
+    "hop": "None",
+    "max_windows": "200",
+    "pfa": "0.001",
+    "yolo_weights": "C:\\Users\\kaank\\AppData\\Local\\Temp\\claude\\C--Users-kaank--claude-spares-spare-VRL6aG\\ab94c766-d52a-4083-a6c6-a032e2bede57\\scratchpad\\work\\EEE-493\\results\\yolo\\best.pt",
+    "yolo_conf": "0.05",
+    "no_yolo": "False",
+    "link": "[4, 16]",
+    "min_cells": "40",
+    "mask_dc": "0",
+    "noise_only": "False",
+    "annotations_csv": "None",
+    "ignore_annotations": "False",
+    "n_figures": "6",
+    "seed": "0",
+    "out": "results\\real\\iqengine_bluetooth"
+  },
+  "n_windows": 152,
+  "annotated": true,
+  "detectors": {
+    "energy_median": {
+      "boxes_per_window": 1.4671052631578947,
+      "windows_with_a_box": 0.4934210526315789,
+      "mean_share_of_spectrogram_inside_boxes": 0.0029261328466648655,
+      "false_alarms_per_window": 0.75,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 184,
+      "recall_iou50": 0.592391304347826,
+      "recall_iou30": 0.8532608695652174,
+      "median_iou": 0.6708754208754208,
+      "covered_ge30": 1.0
+    },
+    "cfar_freq_g24_t48": {
+      "boxes_per_window": 1.355263157894737,
+      "windows_with_a_box": 0.42105263157894735,
+      "mean_share_of_spectrogram_inside_boxes": 0.003552040727735761,
+      "false_alarms_per_window": 0.868421052631579,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 184,
+      "recall_iou50": 0.40217391304347827,
+      "recall_iou30": 0.7282608695652174,
+      "median_iou": 0.6677188552188552,
+      "covered_ge30": 1.0
+    },
+    "yolo": {
+      "boxes_per_window": 1.5723684210526316,
+      "windows_with_a_box": 0.8947368421052632,
+      "mean_share_of_spectrogram_inside_boxes": 0.805477914222874,
+      "false_alarms_per_window": 1.3092105263157894,
+      "fragments_per_window": 0.006578947368421052,
+      "n_annotated_signals": 184,
+      "recall_iou50": 0.21195652173913043,
+      "recall_iou30": 0.22282608695652173,
+      "median_iou": 0.7130963802337646,
+      "covered_ge30": 0.967391304347826
+    }
+  }
+}

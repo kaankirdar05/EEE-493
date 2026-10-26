@@ -17,3 +17,5 @@ data_real/
 *.sigmf-data
 *.cu8
 *.sdriq
+# the real-data figures are committed as JPEG (scripts/shrink_real_figures.py); the 2 MB PNGs from run_real_data.py are not
+results/real/*/windows.png

@@ -1,0 +1,64 @@
+{
+  "args": {
+    "inputs": "[WindowsPath('data_real/iqengine/cellular_downlink_880MHz/cellular_downlink_880MHz.sigmf-meta')]",
+    "fs": "None",
+    "fc": "None",
+    "format": "None",
+    "window": "262144",
+    "hop": "None",
+    "max_windows": "5",
+    "pfa": "0.001",
+    "yolo_weights": "C:\\Users\\kaank\\AppData\\Local\\Temp\\claude\\C--Users-kaank--claude-spares-spare-VRL6aG\\ab94c766-d52a-4083-a6c6-a032e2bede57\\scratchpad\\work\\EEE-493\\results\\yolo\\best.pt",
+    "yolo_conf": "0.05",
+    "no_yolo": "False",
+    "link": "[4, 16]",
+    "min_cells": "40",
+    "mask_dc": "0",
+    "noise_only": "False",
+    "annotations_csv": "None",
+    "ignore_annotations": "False",
+    "n_figures": "6",
+    "seed": "0",
+    "out": "results\\real\\iqengine_cellular_scored"
+  },
+  "n_windows": 5,
+  "annotated": true,
+  "detectors": {
+    "energy_median": {
+      "boxes_per_window": 4.0,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.6875,
+      "false_alarms_per_window": 3.4,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 8,
+      "recall_iou50": 0.375,
+      "recall_iou30": 0.5,
+      "median_iou": 0.6060063129090233,
+      "covered_ge30": 0.75
+    },
+    "cfar_freq_g24_t48": {
+      "boxes_per_window": 11.2,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.6412481671554252,
+      "false_alarms_per_window": 10.0,
+      "fragments_per_window": 0.6,
+      "n_annotated_signals": 8,
+      "recall_iou50": 0.375,
+      "recall_iou30": 0.5,
+      "median_iou": 0.5427801715475005,
+      "covered_ge30": 0.75
+    },
+    "yolo": {
+      "boxes_per_window": 25.4,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.8142213465298143,
+      "false_alarms_per_window": 23.6,
+      "fragments_per_window": 1.0,
+      "n_annotated_signals": 8,
+      "recall_iou50": 0.5,
+      "recall_iou30": 0.5,
+      "median_iou": 0.5810803771018982,
+      "covered_ge30": 0.875
+    }
+  }
+}

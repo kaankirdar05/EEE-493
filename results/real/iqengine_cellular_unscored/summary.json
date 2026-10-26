@@ -1,0 +1,43 @@
+{
+  "args": {
+    "inputs": "[WindowsPath('data_real/iqengine/cellular_downlink_880MHz/cellular_downlink_880MHz.sigmf-meta')]",
+    "fs": "None",
+    "fc": "None",
+    "format": "None",
+    "window": "262144",
+    "hop": "None",
+    "max_windows": "200",
+    "pfa": "0.001",
+    "yolo_weights": "C:\\Users\\kaank\\AppData\\Local\\Temp\\claude\\C--Users-kaank--claude-spares-spare-VRL6aG\\ab94c766-d52a-4083-a6c6-a032e2bede57\\scratchpad\\work\\EEE-493\\results\\yolo\\best.pt",
+    "yolo_conf": "0.05",
+    "no_yolo": "False",
+    "link": "[4, 16]",
+    "min_cells": "40",
+    "mask_dc": "0",
+    "noise_only": "False",
+    "annotations_csv": "None",
+    "ignore_annotations": "True",
+    "n_figures": "6",
+    "seed": "0",
+    "out": "results\\real\\iqengine_cellular_unscored"
+  },
+  "n_windows": 76,
+  "annotated": false,
+  "detectors": {
+    "energy_median": {
+      "boxes_per_window": 4.631578947368421,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.6868842787756598
+    },
+    "cfar_freq_g24_t48": {
+      "boxes_per_window": 8.605263157894736,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.6334193283106963
+    },
+    "yolo": {
+      "boxes_per_window": 30.092105263157894,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.806807404812664
+    }
+  }
+}

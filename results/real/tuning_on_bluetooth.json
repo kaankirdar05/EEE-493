@@ -1,0 +1,167 @@
+{
+  "input": "bluetooth.sigmf-meta",
+  "n_windows": 40,
+  "n_annotated": 45,
+  "max_fa": 2.0,
+  "yolo_max_fa": 0.25,
+  "post_grid": [
+    {
+      "link": [
+        1,
+        2
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 1.0,
+      "cfar_freq_g24_t48_recall30": 1.0,
+      "energy_median_fa_per_window": 8.225,
+      "cfar_freq_g24_t48_fa_per_window": 1.6
+    },
+    {
+      "link": [
+        1,
+        2
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 1.0,
+      "cfar_freq_g24_t48_recall30": 1.0,
+      "energy_median_fa_per_window": 0.15,
+      "cfar_freq_g24_t48_fa_per_window": 0.1
+    },
+    {
+      "link": [
+        2,
+        4
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 1.0,
+      "cfar_freq_g24_t48_recall30": 1.0,
+      "energy_median_fa_per_window": 8.55,
+      "cfar_freq_g24_t48_fa_per_window": 1.8
+    },
+    {
+      "link": [
+        2,
+        4
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 1.0,
+      "cfar_freq_g24_t48_recall30": 1.0,
+      "energy_median_fa_per_window": 0.175,
+      "cfar_freq_g24_t48_fa_per_window": 0.1
+    },
+    {
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.9777777777777777,
+      "cfar_freq_g24_t48_recall30": 1.0,
+      "energy_median_fa_per_window": 8.75,
+      "cfar_freq_g24_t48_fa_per_window": 1.9
+    },
+    {
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.9777777777777777,
+      "cfar_freq_g24_t48_recall30": 1.0,
+      "energy_median_fa_per_window": 0.225,
+      "cfar_freq_g24_t48_fa_per_window": 0.1
+    },
+    {
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.7555555555555555,
+      "cfar_freq_g24_t48_recall30": 0.6666666666666666,
+      "energy_median_fa_per_window": 10.35,
+      "cfar_freq_g24_t48_fa_per_window": 4.775
+    },
+    {
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.7555555555555555,
+      "cfar_freq_g24_t48_recall30": 0.6666666666666666,
+      "energy_median_fa_per_window": 0.475,
+      "cfar_freq_g24_t48_fa_per_window": 0.475
+    },
+    {
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.2222222222222222,
+      "cfar_freq_g24_t48_recall30": 0.13333333333333333,
+      "energy_median_fa_per_window": 14.575,
+      "cfar_freq_g24_t48_fa_per_window": 13.675
+    },
+    {
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.2222222222222222,
+      "cfar_freq_g24_t48_recall30": 0.13333333333333333,
+      "energy_median_fa_per_window": 1.725,
+      "cfar_freq_g24_t48_fa_per_window": 2.075
+    }
+  ],
+  "chosen_post": {
+    "link": [
+      1,
+      2
+    ],
+    "min_cells": 40,
+    "energy_median_recall30": 1.0,
+    "cfar_freq_g24_t48_recall30": 1.0,
+    "energy_median_fa_per_window": 0.15,
+    "cfar_freq_g24_t48_fa_per_window": 0.1
+  },
+  "yolo_grid": [
+    {
+      "conf": 0.05,
+      "recall30": 0.13333333333333333,
+      "fa_per_window": 1.175
+    },
+    {
+      "conf": 0.1,
+      "recall30": 0.13333333333333333,
+      "fa_per_window": 0.85
+    },
+    {
+      "conf": 0.2,
+      "recall30": 0.13333333333333333,
+      "fa_per_window": 0.6
+    },
+    {
+      "conf": 0.3,
+      "recall30": 0.13333333333333333,
+      "fa_per_window": 0.4
+    },
+    {
+      "conf": 0.5,
+      "recall30": 0.044444444444444446,
+      "fa_per_window": 0.175
+    },
+    {
+      "conf": 0.7,
+      "recall30": 0.022222222222222223,
+      "fa_per_window": 0.0
+    }
+  ],
+  "chosen_yolo": {
+    "conf": 0.5,
+    "recall30": 0.044444444444444446,
+    "fa_per_window": 0.175
+  }
+}

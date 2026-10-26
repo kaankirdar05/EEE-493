@@ -107,7 +107,8 @@ def read_sigmf(path: Path, fs: float | None = None, fc: float | None = None) -> 
         if "core:freq_lower_edge" not in a or "core:freq_upper_edge" not in a:
             continue                                   # an annotation without a frequency extent is not a box
         ann.append(Annotation(int(a["core:sample_start"]), int(a.get("core:sample_count", n - a["core:sample_start"])),
-                              float(a["core:freq_lower_edge"]), float(a["core:freq_upper_edge"]), str(a.get("core:label", ""))))
+                              float(a["core:freq_lower_edge"]), float(a["core:freq_upper_edge"]),
+                        str(a.get("core:label") or a.get("core:description", ""))))   # IQEngine's dect6 / cellular files use core:description
     return Recording(data_path, rate, freq, n, "sigmf:" + kind, ann, None, read)
 
 

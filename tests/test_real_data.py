@@ -55,6 +55,16 @@ def test_sigmf_roundtrip_with_annotations(tmp_path):
     assert window_boxes(rec, 0, 2000) == []                                              # 1000 of 4000 samples inside: dropped
 
 
+def test_sigmf_label_falls_back_to_description(tmp_path):
+    """IQEngine's dect6 / cellular files label their annotations with core:description, not core:label."""
+    _iq(2000).tofile(tmp_path / "r.sigmf-data")
+    ann = [{"core:sample_start": 0, "core:sample_count": 100, "core:freq_lower_edge": 100.1e6, "core:freq_upper_edge": 100.2e6,
+            "core:description": "DECT6"}]
+    (tmp_path / "r.sigmf-meta").write_text(json.dumps({"global": {"core:datatype": "cf32_le", "core:sample_rate": 1e6},
+                                                       "captures": [{"core:frequency": 100e6}], "annotations": ann}))
+    assert open_recording(tmp_path / "r.sigmf-meta").annotations[0].label == "DECT6"
+
+
 def test_sdriq_roundtrip_and_crc(tmp_path):
     x = _iq(5000)
     head = struct.pack("<IQQII", 250000, 433_920_000, 1_700_000_000_000, 16, 0)
@@ -138,3 +148,32 @@ def test_end_to_end_on_annotated_sigmf(tmp_path):
     assert s["recall_iou50"] == np.mean([r["det@0.5"] for r in ref["rows"]])
     assert s["false_alarms_per_window"] == ref["n_fa"][0.5]
     assert (out / "predictions.csv").exists() and (out / "windows.png").exists()
+
+
+def _run(tmp_path, name, *extra):
+    out = tmp_path / name
+    r = subprocess.run([sys.executable, str(ROOT / "scripts/run_real_data.py"), str(tmp_path / "n.sigmf-meta"), "--no-yolo", "--max-windows", "2",
+                        "--n-figures", "1", "--out", str(out), *extra], capture_output=True, text=True, timeout=600)
+    assert r.returncode == 0, r.stderr[-2000:]
+    return json.loads((out / "summary.json").read_text())
+
+
+def test_options_mask_dc_ignore_annotations_and_link(tmp_path):
+    """Noise with a receiver DC offset: the untouched detectors box the spike, --mask-dc removes it; --ignore-annotations drops the
+    scoring; --link / --min-cells reach the box-forming step."""
+    rng = np.random.default_rng(5)
+    n = 262144
+    x = (0.1 * (rng.standard_normal(2 * n) + 1j * rng.standard_normal(2 * n)) + 0.1).astype(np.complex64)     # DC offset = 1 sigma
+    x.tofile(tmp_path / "n.sigmf-data")
+    ann = [{"core:sample_start": 1000, "core:sample_count": 5000, "core:freq_lower_edge": 100.5e6, "core:freq_upper_edge": 100.6e6}]
+    (tmp_path / "n.sigmf-meta").write_text(json.dumps({"global": {"core:datatype": "cf32_le", "core:sample_rate": 10e6},
+                                                       "captures": [{"core:frequency": 100e6}], "annotations": ann}))
+    plain = _run(tmp_path, "plain", "--noise-only")["detectors"]["energy_median"]
+    masked = _run(tmp_path, "masked", "--noise-only", "--mask-dc", "4")["detectors"]["energy_median"]
+    assert plain["windows_with_a_box"] == 1.0 and masked["windows_with_a_box"] < plain["windows_with_a_box"]
+    ignored = _run(tmp_path, "ignored", "--ignore-annotations")
+    assert ignored["annotated"] is False and "recall_iou30" not in ignored["detectors"]["energy_median"]
+    scored = _run(tmp_path, "scored")
+    assert scored["annotated"] is True and "covered_ge30" in scored["detectors"]["energy_median"]
+    big = _run(tmp_path, "linked", "--noise-only", "--link", "30", "200", "--min-cells", "5000")["detectors"]["energy_median"]
+    assert big["boxes_per_window"] <= plain["boxes_per_window"]

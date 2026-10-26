@@ -1,0 +1,153 @@
+{
+  "input": "dect6.sigmf-meta",
+  "n_windows": 40,
+  "n_annotated": 524,
+  "max_fa": 2.0,
+  "yolo_max_fa": 0.25,
+  "post_grid": [
+    {
+      "link": [
+        1,
+        2
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.3969465648854962,
+      "cfar_freq_g24_t48_recall30": 0.3511450381679389,
+      "energy_median_fa_per_window": 35.05,
+      "cfar_freq_g24_t48_fa_per_window": 30.925
+    },
+    {
+      "link": [
+        1,
+        2
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.3969465648854962,
+      "cfar_freq_g24_t48_recall30": 0.3511450381679389,
+      "energy_median_fa_per_window": 17.5,
+      "cfar_freq_g24_t48_fa_per_window": 17.5
+    },
+    {
+      "link": [
+        2,
+        4
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.3320610687022901,
+      "cfar_freq_g24_t48_recall30": 0.17557251908396945,
+      "energy_median_fa_per_window": 29.8,
+      "cfar_freq_g24_t48_fa_per_window": 21.475
+    },
+    {
+      "link": [
+        2,
+        4
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.3320610687022901,
+      "cfar_freq_g24_t48_recall30": 0.17557251908396945,
+      "energy_median_fa_per_window": 15.9,
+      "cfar_freq_g24_t48_fa_per_window": 15.675
+    },
+    {
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.25572519083969464,
+      "cfar_freq_g24_t48_recall30": 0.08587786259541985,
+      "energy_median_fa_per_window": 30.625,
+      "cfar_freq_g24_t48_fa_per_window": 22.4
+    },
+    {
+      "link": [
+        2,
+        6
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.25572519083969464,
+      "cfar_freq_g24_t48_recall30": 0.08587786259541985,
+      "energy_median_fa_per_window": 16.9,
+      "cfar_freq_g24_t48_fa_per_window": 16.875
+    },
+    {
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.08969465648854962,
+      "cfar_freq_g24_t48_recall30": 0.0019083969465648854,
+      "energy_median_fa_per_window": 24.275,
+      "cfar_freq_g24_t48_fa_per_window": 14.75
+    },
+    {
+      "link": [
+        4,
+        16
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.08969465648854962,
+      "cfar_freq_g24_t48_recall30": 0.0019083969465648854,
+      "energy_median_fa_per_window": 14.0,
+      "cfar_freq_g24_t48_fa_per_window": 10.45
+    },
+    {
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 12,
+      "energy_median_recall30": 0.0,
+      "cfar_freq_g24_t48_recall30": 0.0,
+      "energy_median_fa_per_window": 7.425,
+      "cfar_freq_g24_t48_fa_per_window": 5.8
+    },
+    {
+      "link": [
+        8,
+        32
+      ],
+      "min_cells": 40,
+      "energy_median_recall30": 0.0,
+      "cfar_freq_g24_t48_recall30": 0.0,
+      "energy_median_fa_per_window": 2.375,
+      "cfar_freq_g24_t48_fa_per_window": 1.35
+    }
+  ],
+  "chosen_post": null,
+  "yolo_grid": [
+    {
+      "conf": 0.05,
+      "recall30": 0.0,
+      "fa_per_window": 1.825
+    },
+    {
+      "conf": 0.1,
+      "recall30": 0.0,
+      "fa_per_window": 1.375
+    },
+    {
+      "conf": 0.2,
+      "recall30": 0.0,
+      "fa_per_window": 1.05
+    },
+    {
+      "conf": 0.3,
+      "recall30": 0.0,
+      "fa_per_window": 1.0
+    },
+    {
+      "conf": 0.5,
+      "recall30": 0.0,
+      "fa_per_window": 1.0
+    },
+    {
+      "conf": 0.7,
+      "recall30": 0.0,
+      "fa_per_window": 0.8
+    }
+  ],
+  "chosen_yolo": null
+}

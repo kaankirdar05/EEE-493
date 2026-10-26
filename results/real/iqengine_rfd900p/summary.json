@@ -1,0 +1,43 @@
+{
+  "args": {
+    "inputs": "[WindowsPath('data_real/iqengine/rfd900p/rfd900p.sigmf-meta')]",
+    "fs": "None",
+    "fc": "None",
+    "format": "None",
+    "window": "262144",
+    "hop": "None",
+    "max_windows": "200",
+    "pfa": "0.001",
+    "yolo_weights": "C:\\Users\\kaank\\AppData\\Local\\Temp\\claude\\C--Users-kaank--claude-spares-spare-VRL6aG\\ab94c766-d52a-4083-a6c6-a032e2bede57\\scratchpad\\work\\EEE-493\\results\\yolo\\best.pt",
+    "yolo_conf": "0.05",
+    "no_yolo": "False",
+    "link": "[4, 16]",
+    "min_cells": "40",
+    "mask_dc": "0",
+    "noise_only": "False",
+    "annotations_csv": "None",
+    "ignore_annotations": "False",
+    "n_figures": "6",
+    "seed": "0",
+    "out": "results\\real\\iqengine_rfd900p"
+  },
+  "n_windows": 43,
+  "annotated": false,
+  "detectors": {
+    "energy_median": {
+      "boxes_per_window": 1.4651162790697674,
+      "windows_with_a_box": 0.9534883720930233,
+      "mean_share_of_spectrogram_inside_boxes": 0.04264968941098911
+    },
+    "cfar_freq_g24_t48": {
+      "boxes_per_window": 1.9534883720930232,
+      "windows_with_a_box": 0.9767441860465116,
+      "mean_share_of_spectrogram_inside_boxes": 0.0483615221987315
+    },
+    "yolo": {
+      "boxes_per_window": 7.186046511627907,
+      "windows_with_a_box": 0.9767441860465116,
+      "mean_share_of_spectrogram_inside_boxes": 0.9399198610021824
+    }
+  }
+}

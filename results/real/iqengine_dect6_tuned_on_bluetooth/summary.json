@@ -1,0 +1,64 @@
+{
+  "args": {
+    "inputs": "[WindowsPath('data_real/iqengine/dect6/dect6.sigmf-meta')]",
+    "fs": "None",
+    "fc": "None",
+    "format": "None",
+    "window": "262144",
+    "hop": "None",
+    "max_windows": "200",
+    "pfa": "0.001",
+    "yolo_weights": "C:\\Users\\kaank\\AppData\\Local\\Temp\\claude\\C--Users-kaank--claude-spares-spare-VRL6aG\\ab94c766-d52a-4083-a6c6-a032e2bede57\\scratchpad\\work\\EEE-493\\results\\yolo\\best.pt",
+    "yolo_conf": "0.5",
+    "no_yolo": "False",
+    "link": "[1, 2]",
+    "min_cells": "40",
+    "mask_dc": "0",
+    "noise_only": "False",
+    "annotations_csv": "None",
+    "ignore_annotations": "False",
+    "n_figures": "6",
+    "seed": "0",
+    "out": "results\\real\\iqengine_dect6_tuned_on_bluetooth"
+  },
+  "n_windows": 152,
+  "annotated": true,
+  "detectors": {
+    "energy_median": {
+      "boxes_per_window": 22.414473684210527,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.16461252922100889,
+      "false_alarms_per_window": 22.388157894736842,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 1992,
+      "recall_iou50": 0.002008032128514056,
+      "recall_iou30": 0.4006024096385542,
+      "median_iou": 0.5380644076315091,
+      "covered_ge30": 1.0
+    },
+    "cfar_freq_g24_t48": {
+      "boxes_per_window": 22.401315789473685,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.15000127113398415,
+      "false_alarms_per_window": 22.38157894736842,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 1992,
+      "recall_iou50": 0.0015060240963855422,
+      "recall_iou30": 0.3473895582329317,
+      "median_iou": 0.5578573542468186,
+      "covered_ge30": 0.9894578313253012
+    },
+    "yolo": {
+      "boxes_per_window": 1.0,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.8782948621869693,
+      "false_alarms_per_window": 1.0,
+      "fragments_per_window": 0.0,
+      "n_annotated_signals": 1992,
+      "recall_iou50": 0.0,
+      "recall_iou30": 0.0,
+      "median_iou": null,
+      "covered_ge30": 0.9984939759036144
+    }
+  }
+}

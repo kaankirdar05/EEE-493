@@ -1,0 +1,43 @@
+{
+  "args": {
+    "inputs": "[WindowsPath('data_real/subghz/sigfox/sigfox_g0.0dB_att25dB_freq867.4MHz_1.mat')]",
+    "fs": "2048000.0",
+    "fc": "867400000.0",
+    "format": "None",
+    "window": "65536",
+    "hop": "None",
+    "max_windows": "400",
+    "pfa": "0.001",
+    "yolo_weights": "C:\\Users\\kaank\\AppData\\Local\\Temp\\claude\\C--Users-kaank--claude-spares-spare-VRL6aG\\ab94c766-d52a-4083-a6c6-a032e2bede57\\scratchpad\\work\\EEE-493\\results\\yolo\\best.pt",
+    "yolo_conf": "0.05",
+    "no_yolo": "False",
+    "link": "[4, 16]",
+    "min_cells": "40",
+    "mask_dc": "4",
+    "noise_only": "False",
+    "annotations_csv": "None",
+    "ignore_annotations": "False",
+    "n_figures": "6",
+    "seed": "0",
+    "out": "results\\real\\subghz_sigfox_w65536_dcmask4"
+  },
+  "n_windows": 125,
+  "annotated": false,
+  "detectors": {
+    "energy_median": {
+      "boxes_per_window": 4.856,
+      "windows_with_a_box": 1.0,
+      "mean_share_of_spectrogram_inside_boxes": 0.2354624387254902
+    },
+    "cfar_freq_g24_t48": {
+      "boxes_per_window": 4.216,
+      "windows_with_a_box": 0.992,
+      "mean_share_of_spectrogram_inside_boxes": 0.12321825980392155
+    },
+    "yolo": {
+      "boxes_per_window": 7.144,
+      "windows_with_a_box": 0.992,
+      "mean_share_of_spectrogram_inside_boxes": 0.8238349877450979
+    }
+  }
+}

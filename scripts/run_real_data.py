@@ -100,8 +100,17 @@ def main():
     ap.add_argument("--yolo-weights", type=Path, default=ROOT / "results/yolo/best.pt")
     ap.add_argument("--yolo-conf", type=float, default=0.05)
     ap.add_argument("--no-yolo", action="store_true")
+    ap.add_argument("--link", type=int, nargs=2, default=[4, 16], metavar=("DF", "DT"),
+                    help="box linking (frequency, time cells) of the classical detectors; default = the synthetic evaluation's")
+    ap.add_argument("--min-cells", type=int, default=40, help="smallest box (detected cells) of the classical detectors")
+    ap.add_argument("--mask-dc", type=int, default=0, metavar="N",
+                    help="receiver DC / LO-leakage spike: set the 2N+1 centre frequency bins of every spectrogram to the noise level "
+                         "(median / ln 2) before any detector sees them. Off by default; the untouched detectors are the reference")
     ap.add_argument("--noise-only", action="store_true", help="the recordings contain no signal: every box counts as a false alarm")
     ap.add_argument("--annotations-csv", type=Path)
+    ap.add_argument("--ignore-annotations", action="store_true",
+                    help="do not score: drop the SigMF annotations (for recordings annotated over only part of their length, "
+                         "where the unannotated rest would count every detection as a false alarm)")
     ap.add_argument("--n-figures", type=int, default=6, help="windows drawn in the figure (random, fixed seed)")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", type=Path, default=ROOT / "results/real/run")
@@ -111,7 +120,7 @@ def main():
 
     names = [d for d in DETECTORS if not (d[0] == "yolo" and args.no_yolo)]
     specs = {s.name: s for s in DEFAULT_SPECS}
-    post = Post()
+    post = Post(link=tuple(args.link), min_cells=args.min_cells)
     rng = np.random.default_rng(args.seed)
     thr_cache, yolo_cache = {}, {}
     stats = {n: defaultdict(list) for n, _, _ in names}
@@ -122,6 +131,8 @@ def main():
         rec = open_recording(path, fs=args.fs, fc=args.fc, fmt=args.format)
         if args.annotations_csv:
             rec.annotations = load_annotations_csv(args.annotations_csv, rec)
+        if args.ignore_annotations:
+            rec.annotations = []
         has_ann = bool(rec.annotations) or args.noise_only
         any_ann |= has_ann
         print(f"{path.name}: {rec.fmt}, fs {rec.fs:g} Hz, fc {rec.fc:g} Hz, {rec.n_samples} samples ({rec.n_samples / rec.fs:.3f} s), "
@@ -139,6 +150,10 @@ def main():
 
                     yolo_cache[n] = YoloDetector(args.yolo_weights, geom, min_conf=args.yolo_conf)
             P = power_spectrogram(iq, geom)
+            if args.mask_dc:
+                c = geom.n_fft // 2
+                P = P.copy()
+                P[c - args.mask_dc : c + args.mask_dc + 1] = np.median(P) / np.log(2)
             preds, conf = {}, {}
             for k in ("energy_median", "cfar_freq_g24_t48"):
                 preds[k] = mask_to_boxes(detect_mask(specs[k], P, thr_cache[n][k]), geom, link=post.link, min_cells=post.min_cells)
@@ -154,7 +169,7 @@ def main():
                     sc = score_boxes(gts, pb, boxes_to_mask(pb, geom), geom, iou_thrs=(0.5, 0.3))
                     st["fa"].append(sc["n_fa"][0.5]); st["frag"].append(sc["n_frag"][0.5])
                     for r in sc["rows"]:
-                        st["det50"].append(r["det@0.5"]); st["det30"].append(r["det@0.3"])
+                        st["det50"].append(r["det@0.5"]); st["det30"].append(r["det@0.3"]); st["cov"].append(r["covered"])
                         if r["det@0.5"]:
                             st["iou"].append(r["iou"])
                 for i, b in enumerate(pb):
@@ -182,14 +197,23 @@ def main():
             d.update(false_alarms_per_window=float(np.mean(st["fa"])), fragments_per_window=float(np.mean(st["frag"])))
             if st["det50"]:
                 d.update(n_annotated_signals=len(st["det50"]), recall_iou50=float(np.mean(st["det50"])),
-                         recall_iou30=float(np.mean(st["det30"])), median_iou=float(np.median(st["iou"])) if st["iou"] else None)
+                         recall_iou30=float(np.mean(st["det30"])), median_iou=float(np.median(st["iou"])) if st["iou"] else None,
+                         # share of annotated signals with >= 30 % of their cells inside a predicted box; unlike recall it ignores
+                         # IoU, so it also rewards boxes that are far too big (separates "found" from "boxed well")
+                         covered_ge30=float(np.mean(st["cov"])))
         summary["detectors"][name] = d
     (args.out / "summary.json").write_text(json.dumps(summary, indent=2))
     if rows_out:
         with open(args.out / "predictions.csv", "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=list(rows_out[0])); w.writeheader(); w.writerows(rows_out)
+    notes = [f"centre {2 * args.mask_dc + 1} bins masked"] if args.mask_dc else []          # options that differ from the reference runs
+    if tuple(args.link) != (4, 16) or args.min_cells != 40:
+        notes.append(f"link {tuple(args.link)}, min {args.min_cells} cells")
+    if args.yolo_conf != 0.05:
+        notes.append(f"YOLO conf {args.yolo_conf:g}")
     plot_windows(sorted(chosen, key=lambda w: (w["name"], w["start"])), names, args.out / "windows.png",
-                 f"{', '.join(p.name for p in args.inputs[:3])}{' ...' if len(args.inputs) > 3 else ''}")
+                 f"{', '.join(p.name for p in args.inputs[:3])}{' ...' if len(args.inputs) > 3 else ''}"
+                 + (f"  [{'; '.join(notes)}]" if notes else ""))
 
     print(f"\n{seen} windows; scored against annotations: {any_ann}")
     for name, label, _ in names:
