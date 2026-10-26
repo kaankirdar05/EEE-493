@@ -11,3 +11,9 @@ data_cache/
 
 # small sample of the test data that is committed on purpose
 !data_sample/iq/*.npz
+
+# real recordings are downloaded, never committed (see tasks/real_data_detection.md)
+data_real/
+*.sigmf-data
+*.cu8
+*.sdriq

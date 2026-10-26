@@ -263,6 +263,23 @@ The summary figure counts "false alarms" without fragments (as in the tables abo
    is pulled up by signals or by the noise not being quite exponential in impaired scenes, but I have not diagnosed it. It makes the
    detector slightly conservative, not wrong.
 
+## Real recordings
+
+`scripts/run_real_data.py` runs the energy detector, CA-CFAR and YOLO on real I/Q files (SigMF with annotations, SDRangel `.sdriq`,
+2-channel `.wav`, MATLAB `.mat`, raw `.cu8`) and writes predictions in seconds and absolute Hz, a figure, and, if the file has box
+annotations, recall / false alarms / fragments with the same scoring as above. The readers are in `src/vuhf/data/real.py` and are
+covered by `tests/test_real_data.py`.
+
+```
+python scripts/run_real_data.py capture.sigmf-meta --out results/real/capture
+python scripts/run_real_data.py snapshot.mat --fs 2.048e6 --fc 864e6 --window 65536 --out results/real/subghz
+```
+
+**Status: the code has only been tested on synthetic files.** No real dataset has been run yet; the sandbox that wrote it could not reach
+the dataset sites. `tasks/real_data_detection.md` is the full brief for that run: which of the datasets in `EEE493_SNR_Datasets.pdf` are
+proper for detection (wideband captures, ideally with box annotations) and which are not (single-signal classification clips), what to
+report, and what the synthetic results lead us to expect (a non-flat noise floor broke all three detectors on the impaired scenes).
+
 ## Sample data
 
 `data_sample/` (31 MB) holds a small sample you can open without generating anything: the first 4 test scenes of each impairment level
