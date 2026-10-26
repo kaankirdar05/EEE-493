@@ -10,8 +10,9 @@ Stage 1 is done: three detectors with one evaluation harness, run on WidebandSig
 with TorchSig: the classical energy detector and CA-CFAR, and a YOLOv8n neural detector trained on the same kind of scenes.
 On 900 held-out scenes YOLO finds 93 to 96 % of the signals (IoU 0.3) against 73 to 77 % for the classical detectors, at the
 same false-alarm level, mainly because it separates overlapping signals (details below).
-**That ranking does not survive real recordings** (section "Real recordings"): on three annotated public captures and one
-noise-only capture the classical detectors are ahead of YOLO or tied with it, and none of the three works on strong, short bursts.
+**That ranking does not survive real recordings** (section "Real recordings"): with the synthetic-trained weights the classical detectors are ahead of YOLO or tied
+with it on three annotated public captures, and none of the three works on strong, short bursts. Retraining YOLO on labelled windows of the same recording fixes
+that recording (recall 1.00 on held-out blocks) but does not transfer to a recording it has not seen (0.00).
 
 ```
 src/vuhf/
@@ -38,7 +39,9 @@ scripts/
   run_real_data.py           the three detectors on real I/Q recordings (SigMF, .sdriq, .wav, .mat, raw), scored when annotated
   tune_real.py               choose box linking / YOLO confidence on one annotated real recording, to apply to another
   summarize_real.py          results/real/*/summary.json -> results/real/summary_tables.md
-tests/                       28 unit tests (pytest)
+  make_real_yolo_dataset.py  train / validation images of an annotated real recording (time-block split) for fine-tuning YOLO
+  eval_real_yolo.py          score YOLO models and the classical detectors on the held-out test blocks
+tests/                       29 unit tests (pytest)
 results/                     the numbers and figures quoted below
 ```
 
@@ -395,6 +398,52 @@ Tables with the counts are in `results/real/summary_tables.md`.
 single captures, not independent. The centre-bin mask splits signals that straddle the centre. The by-eye judgements cover the 6 windows each figure draws. The licence of `rfd900p` and `FM-with-SCA` is not stated: check it before
 their pictures or counts enter a deliverable. Results hold for these particular captures; nothing here says how the detectors do on the project's own receivers.
 
+### Retraining YOLO on the labelled real recordings (2026-10-26)
+
+*Question:* the synthetic-trained YOLO fails on real captures; does training on labelled real windows fix it? Commands: `results/real_yolo/commands.sh`;
+numbers: `results/real_yolo/test_table.md` and `test_results.json`; pictures: `test_windows_*.jpg`; training logs: `results/real_yolo/runs/`.
+
+**Protocol.** Only `dect6` and `bluetooth` have enough boxes (`cellular` has 8). Each recording is 152 windows of 262,144 samples, cut into 10 contiguous blocks in the
+fixed order train, train, **test**, train, validation, train, **test**, train, train, **test** (`block_split`; the first window of every block is dropped, so two blocks never touch).
+That is 84 train, 14 validation and 42 test windows per recording. Train images are the train windows at a stride of a quarter window (318 per recording: 4,168 boxes for `dect6`, 434 for `bluetooth`, 166 of
+the `bluetooth` images empty); 14 validation images; **the test blocks are never written as images** and are scored once. The model is the synthetic-trained `results/yolo/best.pt`, fine-tuned for 30 epochs with the
+settings of `scripts/train_yolo.py` (512 px, batch 16, flips, mosaic), CPU only, one seed per model; the saved weights are the best validation epoch (26, 28, 28). Three models: *joint* (both recordings),
+*dect6only*, *bluetoothonly*. The confidence of each model and the box linking of the classical detectors are chosen on the validation block with the rule of the synthetic tuning scripts (best recall at IoU 0.3 within 2 false alarms per window);
+YOLO is also shown at the default 0.05. The classical detectors get the same windows, untuned, with the validation-chosen linking, and with link (1, 2) / 40 cells (chosen earlier on `bluetooth` windows).
+*A change made on the way:* my first split was the first 60 % / next 15 % / last 25 % of each recording, which left `bluetooth` (its packets thin out over time) 14 test packets. I switched to the interleaved blocks before any retrained
+model was scored, but I had already seen the classical and synthetic-YOLO scores on the first test block.
+
+| test blocks | detector | recall IoU 0.3 (95 % interval) | recall IoU 0.5 | median IoU | boxes / window | false alarms / window |
+|---|---|---|---|---|---|---|
+| `dect6`, 551 bursts | energy / CA-CFAR, untuned | 0.09 / 0.00 | 0.00 / 0.00 | - / - | 15.3 / 11.0 | 15.3 / 11.0 |
+| | energy / CA-CFAR, link (1, 2) | 0.40 / 0.36 | 0.00 / 0.00 | - | 22.4 / 21.9 | 22.4 / 21.9 |
+| | YOLO synthetic-trained (before) | 0.00 | 0.00 | - | 1.8 | 1.8 |
+| | **YOLO joint** | **1.00** (0.99 to 1.00) | 0.99 | 0.88 | 14.4 | 0.1 |
+| | **YOLO dect6only** | **1.00** (0.99 to 1.00) | 0.99 | 0.87 | 16.1 | 0.4 |
+| | YOLO bluetoothonly (never saw `dect6`) | 0.00 | 0.00 | - | 0.2 | 0.1 |
+| `bluetooth`, 39 packets | energy / CA-CFAR, untuned | 0.79 / 0.74 | 0.59 / 0.41 | 0.68 / 0.67 | 1.0 / 1.0 | 0.4 / 0.6 |
+| | energy / CA-CFAR, link (1, 2) chosen on validation | 1.00 / 1.00 (0.91 to 1.00) | 0.95 / 0.97 | 0.67 / 0.68 | 1.0 / 1.0 | 0.1 / 0.1 |
+| | YOLO synthetic-trained (before) | 0.15 (0.07 to 0.30) | 0.10 | 0.66 | 1.4 | 1.3 |
+| | **YOLO joint** | **1.00** (0.91 to 1.00) | 1.00 | 0.87 | 1.0 | 0.0 |
+| | **YOLO bluetoothonly** | **1.00** (0.91 to 1.00) | 1.00 | 0.92 | 1.0 | 0.1 |
+| | YOLO dect6only (never saw `bluetooth`) | 0.00 (0.00 to 0.09) | 0.00 | - | 0.0 | 0.0 |
+
+(YOLO at confidence 0.05. The validation-chosen confidences give the same recall to two decimals; on `dect6` the retrained models have 1.3 to 2.7 fragments per window. The "chosen on validation"
+linking of the classical detectors on `dect6` is a fallback, because no setting stays within the budget: it picks window-sized boxes, so the fixed link (1, 2) row is the fair one. Full table with all rows: `results/real_yolo/test_table.md`.)
+
+**What this says.**
+
+1. *Retraining repairs the recording it was trained on, completely.* `dect6`: 0.00 to 1.00 at IoU 0.3 (0.99 at 0.5); `bluetooth`: 0.15 to 1.00; at most 0.4 false boxes per window at the default confidence (0.6 at the validation-chosen one). The retrained boxes sit on the annotated bursts one for one (see `test_windows_dect6.jpg`).
+2. *On `bluetooth` this was not needed to find the packets.* The classical detectors with linking (1, 2) also reach 1.00 recall at 0.1 false alarms per window; YOLO's edge there is box shape (IoU 0.5: 1.00 against 0.95 and 0.97). On `dect6` nothing but the retrained YOLO works (best classical: 0.40).
+3. *Part of YOLO's lead is the annotation convention.* It is trained on the annotated boxes (a nominal 1.5 MHz by 0.4 ms), so it reproduces them (median IoU 0.87 to 0.92); the classical detectors measure power and cannot know the convention (median IoU 0.67 to 0.68 on `bluetooth`, none reach IoU 0.5 on `dect6`). The `dect6` task is also easy to learn once labelled: fixed carrier, fixed burst length, a burst every 5 ms.
+4. *It does not transfer.* A model that never saw a recording detects nothing on it: `dect6only` on `bluetooth` has recall 0.00 (interval 0.00 to 0.09) and draws no box at all, `bluetoothonly` on `dect6` has recall 0.00 (interval 0.00 to 0.01) at 0.2 boxes per window. The two recordings differ by a factor of 10 in sample rate, and in bandwidth and burst length, so a model trained on
+   one is a detector for that kind of picture. This is only two recordings: whether a model trained on many recordings would work on a new one cannot be tested here.
+5. *The test is interleaved blocks of the same recording*: same transmitters, receiver and noise as the training blocks, only different times. It measures what labelling can do for a known setup, not performance on a new receiver. One training seed per model; `bluetooth` has 39 test packets (interval 0.91 to 1.00);
+   windows of one recording are not independent, so the intervals are optimistic.
+
+**What I would do next.** Label a short stretch of each target receiver (the data of the project's own receivers) and fine-tune on that, as here; collect at least three labelled recordings from different setups to test transfer with leave-one-recording-out; or make the synthetic training scenes look like these
+captures (short bursts, a DC spike, a non-flat floor) and check the zero-shot result again. The retrained weights are in `results/real_yolo/weights/` but **not committed** (`*.pt` is ignored; they are trained on CC BY-SA recordings, so check the licence terms before sharing them).
+
 ## Sample data
 
 `data_sample/` (31 MB) holds a small sample you can open without generating anything: the first 4 test scenes of each impairment level
@@ -432,7 +481,7 @@ files on the same pixel grid as the images, a CSV in ms and MHz, a per-scene sum
 * The classical detectors merge touching signals (about 18 points of recall); YOLO does not, on this data (job 4.4 baseline done).
   To do: train longer or on a GPU, add scenes with more overlap and a wider SNR range, test a permissively licensed detector (torchvision
   Faster R-CNN / RetinaNet, YOLOX), and train with the 53-style class labels for joint detection and classification.
-* The tables up to "Real recordings" are on synthetic scenes. The real-data run (above) is the test that decides between the detectors, and it went against YOLO: it needs the real scenes to
-  look like its training scenes, and they do not (short bursts, non-flat floors). To do: scenes with receiver impairments, short bursts and a DC spike for training; label boxes on the project's own
+* The tables up to "Real recordings" are on synthetic scenes. The real-data run (above) is the test that decides between the detectors, and with the synthetic-trained weights it went against YOLO: it needs the real scenes to
+  look like its training scenes, and they do not (short bursts, non-flat floors). Retraining on labelled real windows repairs the same-recording case, not transfer to a new recording (section "Retraining YOLO"). To do: scenes with receiver impairments, short bursts and a DC spike for training; label boxes on the project's own
   receivers' recordings; a detector that does not depend on the annotation convention (nominal band) when scoring strong bursts.
 * Next stage: modulation identification (cumulants + SVM, then CNN/ResNet) on the crops these boxes produce.

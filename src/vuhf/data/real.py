@@ -241,6 +241,35 @@ def iter_windows(rec: Recording, window: int = 262144, hop: int | None = None, m
         yield s, rec.read(s, window)
 
 
+BLOCK_PATTERN = "TTETVTETTE"   # train / validation / test blocks in time order; fixed in advance, not tuned
+
+
+def block_split(n_windows: int, pattern: str = BLOCK_PATTERN, guard: int = 1) -> dict[str, list[int]]:
+    """Split the consecutive windows of one recording into ``"train"``, ``"val"`` and ``"test"`` window indices.
+
+    The windows are cut into ``len(pattern)`` contiguous blocks of equal length; block ``k`` goes to the set named by ``pattern[k]``
+    (T, V, E = test).  The first ``guard`` windows of every block are dropped, so two blocks never touch and no signal or interference
+    burst straddles them.  Neighbouring windows share the noise, the receiver state and the transmitters, so a random split of windows
+    would leak; blocks spread over the whole recording keep the three sets alike in traffic (a plain first / last split gave a
+    Bluetooth recording whose packets thin out over time only 14 test packets)."""
+    size = n_windows // len(pattern)
+    out = {"train": [], "val": [], "test": []}
+    for k, c in enumerate(pattern):
+        out[{"T": "train", "V": "val", "E": "test"}[c]] += list(range(k * size + guard, (k + 1) * size))
+    return out
+
+
+def runs(indices: list[int]) -> list[tuple[int, int]]:
+    """Maximal runs of consecutive integers as (first, last)."""
+    out = []
+    for i in sorted(indices):
+        if out and i == out[-1][1] + 1:
+            out[-1] = (out[-1][0], i)
+        else:
+            out.append((i, i))
+    return out
+
+
 def window_boxes(rec: Recording, start: int, length: int, min_overlap: float = 0.5) -> list[Box]:
     """Annotations of ``rec`` as Boxes inside the window [start, start + length): time in samples from the window start,
     frequency in cycles/sample relative to the centre frequency.  An annotation is kept if at least ``min_overlap`` of its

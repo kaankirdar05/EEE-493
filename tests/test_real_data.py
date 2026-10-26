@@ -10,7 +10,7 @@ import numpy as np
 import pytest
 from scipy.io import savemat, wavfile
 
-from vuhf.data.real import Annotation, iter_windows, open_recording, window_boxes
+from vuhf.data.real import Annotation, block_split, iter_windows, open_recording, runs, window_boxes
 from vuhf.data.synthetic import make_scene
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -177,3 +177,15 @@ def test_options_mask_dc_ignore_annotations_and_link(tmp_path):
     assert scored["annotated"] is True and "covered_ge30" in scored["detectors"]["energy_median"]
     big = _run(tmp_path, "linked", "--noise-only", "--link", "30", "200", "--min-cells", "5000")["detectors"]["energy_median"]
     assert big["boxes_per_window"] <= plain["boxes_per_window"]
+
+
+def test_block_split_is_disjoint_and_separated():
+    sp = block_split(152)
+    for a in ("train", "val", "test"):
+        for b in ("train", "val", "test"):
+            if a < b:
+                assert set(sp[a]).isdisjoint(sp[b])
+                assert min(abs(i - j) for i in sp[a] for j in sp[b]) >= 2          # at least one unused window between sets
+    assert [len(sp[k]) for k in ("train", "val", "test")] == [84, 14, 42]
+    assert runs(sp["test"]) == [(31, 44), (91, 104), (136, 149)]
+    assert runs([5, 3, 4, 9]) == [(3, 5), (9, 9)]
